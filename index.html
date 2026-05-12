@@ -421,6 +421,10 @@ body::before{content:'';position:fixed;inset:0;background:
           <label class="field-lbl">Teacher Code <span>(teachers only — leave blank if student)</span></label>
           <input class="field-in" type="text" id="su-teachercode" placeholder="Leave blank if you're a student">
         </div>
+        <div class="field-wrap">
+  <label class="field-lbl">School / Organization <span>(optional)</span></label>
+  <input class="field-in" type="text" id="su-organization" placeholder="e.g. Wachusett Regional High School">
+</div>
         <button class="btn-lime" onclick="doSignup()">Create Account →</button>
         <div class="divider-line">or</div>
         <button class="btn-google" onclick="doGoogle()">
@@ -655,11 +659,12 @@ async function doSignup(){
   const cc=document.getElementById('su-classcode').value.trim().toUpperCase();
   const tc=document.getElementById('su-teachercode').value.trim();
   if(!name||!tag||!email||!pass){setMsg('Fill in all required fields.','msg-err');return}
+  const org=document.getElementById('su-organization').value.trim();
   setMsg('Creating your account...','');
   const isTeacher=tc===TEACHER_SECRET;
   const{data,error}=await sb.auth.signUp({email,password:pass});
   if(error){setMsg(error.message,'msg-err');return}
-  const pd={id:data.user.id,full_name:name,gamer_tag:tag,email,role:isTeacher?'teacher':'student'};
+  const pd={id:data.user.id,full_name:name,gamer_tag:tag,email,role:isTeacher?'teacher':'student', organization:org};
   if(isTeacher)pd.class_code=genCode();
   if(!isTeacher&&cc){const{data:td}=await sb.from('profiles').select('id').eq('class_code',cc).single();if(td)pd.teacher_id=td.id;}
   await sb.from('profiles').insert(pd);
