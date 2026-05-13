@@ -364,6 +364,14 @@ body::before{content:'';position:fixed;inset:0;background:
 .confetti-wrap.open{display:block}
 .cp{position:absolute;animation:confettiFall linear forwards}
 @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+/* ── MULTIPLE CHOICE ── */
+.mc-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.mc-btn{padding:13px 14px;background:var(--card2);border:2px solid var(--border2);border-radius:10px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .18s;text-align:left;display:flex;align-items:center;gap:10px;line-height:1.3;width:100%}
+.mc-btn:hover:not(:disabled){border-color:var(--lime);background:rgba(200,241,53,.08);transform:translateY(-1px)}
+.mc-btn .mc-letter{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--lime);background:rgba(200,241,53,.12);border-radius:5px;padding:2px 7px;flex-shrink:0}
+.mc-btn.correct-reveal{border-color:var(--green)!important;background:rgba(34,197,94,.12)!important;color:var(--green)!important}
+.mc-btn.wrong-reveal{border-color:var(--red)!important;background:rgba(239,68,68,.1)!important;color:#f87171!important}
+.mc-btn:disabled{opacity:.65;cursor:not-allowed;transform:none}
 </style>
 </head>
 <body>
@@ -527,6 +535,7 @@ body::before{content:'';position:fixed;inset:0;background:
         <div class="pip-row" id="pip-row"><div class="pip active"></div><div class="pip"></div></div>
         <div class="q-fb" id="q-fb"></div>
         <div class="sym-bar" id="sym-bar"></div>
+        <div class="mc-choices" id="mcChoices" style="display:none"></div>
         <input class="ans-input" type="text" id="ans-input" autocomplete="off">
         <button class="btn-submit" id="btn-submit">Submit Answer</button>
       </div>
@@ -1017,24 +1026,50 @@ function renderGame(){
   renderCases();renderMB();
 }
 
-function renderQ(){
+ffunction renderQ(){
   const bank=QBANKS[curTopic],q=bank.qs[G.currentQIdx];
   document.getElementById('q-box').style.display='block';
   document.getElementById('q-num-lbl').textContent=G.attempt===2?'Problem #'+q.n+' — Attempt 2':'Problem #'+q.n;
-  document.getElementById('q-cases-lbl').textContent=G.roundElimLeft+' case'+(G.roundElimLeft!==1?'s':'')+' to go';
+  document.getElementById('q-cases-lbl').textContent=G.roundElimLeft+' case'+(G.roundElimLeft===1?'':'s')+' left';
   document.getElementById('q-formula').textContent=q.f;
   document.getElementById('q-hint').textContent=bank.hint;
   const pips=document.getElementById('pip-row');pips.innerHTML='';
-  for(let i=0;i<2;i++){const p=document.createElement('div');if(i===0&&G.attempt===2)p.className='pip failed';else if(i===G.attempt-1)p.className='pip active';else p.className='pip';pips.appendChild(p)}
+  for(let i=0;i<2;i++){const p=document.createElement('div');p.className='pip'+(i===0&&G.attempt===2?' failed':'');pips.appendChild(p)}
   const fb=document.getElementById('q-fb');fb.style.display='none';fb.className='q-fb';
-  const inp=document.getElementById('ans-input');inp.value='';inp.disabled=false;inp.style.borderColor='rgba(200,241,53,.25)';inp.style.boxShadow='';
-  const btn=document.getElementById('btn-submit');btn.disabled=false;btn.textContent=G.attempt===2?'Submit Final Answer':'Submit Answer';
-  setTimeout(()=>inp.focus(),100);
+  const inp=document.getElementById('ans-input');
+  const btn=document.getElementById('btn-submit');
+  const mc=document.getElementById('mcChoices');
+  if(q.choices&&q.choices.length){
+    inp.style.display='none';btn.style.display='none';
+    document.getElementById('sym-bar').style.display='none';
+    mc.style.display='grid';mc.innerHTML='';
+    ['A','B','C','D'].forEach((ltr,i)=>{
+      if(!q.choices[i])return;
+      const b=document.createElement('button');
+      b.className='mc-btn';
+      b.innerHTML='<span class="mc-letter">'+ltr+'</span>'+q.choices[i];
+      b.addEventListener('click',()=>submitMC(q.choices[i]));
+      mc.appendChild(b);
+    });
+  } else {
+    inp.style.display='';btn.style.display='';
+    document.getElementById('sym-bar').style.display='';
+    mc.style.display='none';
+    inp.value='';inp.disabled=false;inp.style.borderColor='';
+    btn.disabled=false;btn.textContent=G.attempt===2?'Final Answer':'Submit Answer';
+    setTimeout(()=>inp.focus(),100);
+  }
 }
+function submitMC(selected){
+  const bank=QBANKS[curTopic],q=bank.qs[G.currentQIdx];
+  const mc=document.getElementById('mcChoices');
+  mc.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  mc.querySelectorAll('.mc-btn').forEach(b=>{
+    const txt=b.textContent.replace(/^[A-D]/,'').trim(
 
 function submitAns(){
   const bank=QBANKS[curTopic],q=bank.qs[G.currentQIdx];
-  const inp=document.getElementById('ans-input'),val=inp.value.trim();if(!val)return;
+  const inp=document.getElementById('ans-input'),val=inp.value.trim();if(!val&&document.getElementById('mcChoices').style.display==='none')return;
   const correct=bank.check(val,q.a);
   const da=q.a.replace(/,/g,' and ');
   const fb=document.getElementById('q-fb');
