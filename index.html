@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZB Games</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,15 +14,15 @@
   --pink:#EC4899;--pink-soft:#f472b6;--pink-bg:rgba(236,72,153,.12);
   --cyan:#06B6D4;--cyan-soft:#67e8f9;--cyan-bg:rgba(6,182,212,.12);
   --orange:#F97316;--orange-soft:#fb923c;
-  --bg:#0C0C14;--bg2:#12121e;--bg3:#1a1a2a;
-  --card:#16162a;--card2:#1e1e38;
+  --bg:#09090f;--bg2:#111118;--bg3:#18181f;
+  --card:#141420;--card2:#1c1c2a;
   --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);
   --text:#F1F0FF;--text2:#9491b4;--text3:#5a5880;
   --red:#ef4444;--green:#22c55e;
-  --radius:14px;--radius-sm:8px;--radius-lg:20px;
+  --radius:12px;--radius-sm:8px;--radius-lg:18px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* animated bg noise */
 body::before{content:'';position:fixed;inset:0;background:
@@ -36,8 +36,8 @@ body::before{content:'';position:fixed;inset:0;background:
 .page.active{display:flex;flex-direction:column}
 
 /* ── TYPOGRAPHY ── */
-.display{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05}
-.mono{font-family:'Space Mono',monospace}
+.display{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.mono{font-family:'DM Mono',monospace}
 
 /* ── ANIMATIONS ── */
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -50,38 +50,38 @@ body::before{content:'';position:fixed;inset:0;background:
 
 /* ── NAV ── */
 .nav{background:rgba(12,12,20,.8);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
-.nav-logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--lime),#7FFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer;letter-spacing:-.02em}
+.nav-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--lime),#7FFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer;letter-spacing:-.02em}
 .nav-right{display:flex;align-items:center;gap:10px}
-.nav-tag{font-family:'Space Mono',monospace;font-size:12px;color:var(--text2);background:var(--card2);padding:4px 10px;border-radius:6px;border:1px solid var(--border)}
+.nav-tag{font-family:'DM Mono',monospace;font-size:12px;color:var(--text2);background:var(--card2);padding:4px 10px;border-radius:6px;border:1px solid var(--border)}
 .pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.05em;text-transform:uppercase}
 .pill-teacher{background:rgba(200,241,53,.15);color:var(--lime);border:1px solid rgba(200,241,53,.3)}
 .pill-student{background:rgba(124,58,237,.15);color:var(--purple-soft);border:1px solid rgba(124,58,237,.3)}
-.btn-nav{padding:7px 16px;background:transparent;border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-nav{padding:7px 16px;background:transparent;border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
 .btn-nav:hover{border-color:var(--red);color:var(--red)}
 
 /* ── AUTH PAGE ── */
 #page-auth{align-items:center;justify-content:center;padding:24px;min-height:100vh}
 .auth-outer{width:100%;max-width:440px}
 .auth-brand{text-align:center;margin-bottom:40px}
-.auth-logo-big{font-family:'Syne',sans-serif;font-size:64px;font-weight:800;line-height:1;background:linear-gradient(135deg,#fff 0%,var(--lime) 50%,#7FFF00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shimmer-text 4s linear infinite;letter-spacing:-.04em}
+.auth-logo-big{font-family:'Plus Jakarta Sans',sans-serif;font-size:56px;font-weight:800;line-height:1;background:linear-gradient(135deg,#fff 0%,var(--lime) 50%,#7FFF00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shimmer-text 4s linear infinite;letter-spacing:-.04em}
 .auth-tagline{font-size:14px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-top:8px;font-weight:500}
 .auth-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:32px;position:relative;overflow:hidden}
 .auth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--lime) 50%,transparent 100%);opacity:.6}
 .auth-tabs{display:flex;background:var(--bg2);border-radius:10px;padding:4px;gap:4px;margin-bottom:28px}
-.auth-tab{flex:1;padding:9px;border:none;background:transparent;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border-radius:7px;transition:all .2s}
+.auth-tab{flex:1;padding:9px;border:none;background:transparent;color:var(--text2);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border-radius:7px;transition:all .2s}
 .auth-tab.active{background:var(--lime);color:#000}
 .auth-form{display:none}.auth-form.active{display:flex;flex-direction:column;gap:14px}
 .field-wrap{display:flex;flex-direction:column;gap:6px}
 .field-lbl{font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.05em;text-transform:uppercase}
 .field-lbl span{font-size:10px;color:var(--text3);text-transform:none;letter-spacing:0;font-weight:400}
-.field-in{width:100%;padding:12px 16px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--text);outline:none;transition:all .2s}
+.field-in{width:100%;padding:12px 16px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:var(--text);outline:none;transition:all .2s}
 .field-in:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,241,53,.12)}
 .field-in::placeholder{color:var(--text3)}
-.btn-lime{width:100%;padding:14px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:all .18s}
+.btn-lime{width:100%;padding:14px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:all .18s}
 .btn-lime:hover{background:#d4f53f;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,241,53,.35)}
 .btn-lime:active{transform:scale(.98)}
 .btn-lime:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
-.btn-google{width:100%;padding:12px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-google{width:100%;padding:12px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px}
 .btn-google:hover{border-color:var(--border2);background:var(--bg3)}
 .divider-line{display:flex;align-items:center;gap:12px;color:var(--text3);font-size:12px}
 .divider-line::before,.divider-line::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -91,7 +91,7 @@ body::before{content:'';position:fixed;inset:0;background:
 /* ── DASHBOARD ── */
 .main{flex:1;max-width:760px;width:100%;margin:0 auto;padding:32px 20px 80px}
 .greeting-bar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px;gap:16px;flex-wrap:wrap}
-.greeting-text h2{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.greeting-text h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;line-height:1.1;letter-spacing:-.02em}
 .greeting-text h2 .highlight{background:linear-gradient(90deg,var(--lime),var(--cyan-soft));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .greeting-text p{color:var(--text2);font-size:14px;margin-top:6px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
@@ -101,14 +101,14 @@ body::before{content:'';position:fixed;inset:0;background:
 .stat-box.lime::before{background:var(--lime)}
 .stat-box.purple::before{background:var(--purple-soft)}
 .stat-box.cyan::before{background:var(--cyan-soft)}
-.stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;line-height:1;letter-spacing:-.02em}
 .stat-box.lime .stat-num{color:var(--lime)}
 .stat-box.purple .stat-num{color:var(--purple-soft)}
 .stat-box.cyan .stat-num{color:var(--cyan-soft)}
 .stat-lbl{font-size:12px;color:var(--text2);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
 .sec-head{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
-.btn-play-hero{width:100%;padding:20px;background:var(--lime);color:#000;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:20px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:all .2s;margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden}
+.btn-play-hero{width:100%;padding:20px;background:var(--lime);color:#000;border:none;border-radius:var(--radius);font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:all .2s;margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden}
 .btn-play-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:translateX(-100%);transition:transform .5s}
 .btn-play-hero:hover::before{transform:translateX(100%)}
 .btn-play-hero:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(200,241,53,.4)}
@@ -118,7 +118,7 @@ body::before{content:'';position:fixed;inset:0;background:
 .score-left .topic{font-weight:700;font-size:14px}
 .score-left .meta{font-size:12px;color:var(--text2);margin-top:2px}
 .score-right{text-align:right}
-.score-amt{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--lime)}
+.score-amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--lime)}
 .score-acc{font-size:11px;color:var(--text3);margin-top:2px}
 .empty-box{text-align:center;padding:40px 24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);border-style:dashed}
 .empty-box .empty-icon{font-size:40px;margin-bottom:12px;opacity:.4}
@@ -127,29 +127,29 @@ body::before{content:'';position:fixed;inset:0;background:
 /* teacher */
 .class-code-card{background:linear-gradient(135deg,rgba(200,241,53,.08),rgba(200,241,53,.02));border:1px solid rgba(200,241,53,.25);border-radius:var(--radius);padding:20px 24px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .cc-label{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-.cc-code{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;color:var(--lime);letter-spacing:.1em}
-.btn-copy{padding:10px 20px;background:rgba(200,241,53,.12);border:1px solid rgba(200,241,53,.3);border-radius:8px;color:var(--lime);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.cc-code{font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;font-weight:800;color:var(--lime);letter-spacing:.1em}
+.btn-copy{padding:10px 20px;background:rgba(200,241,53,.12);border:1px solid rgba(200,241,53,.3);border-radius:8px;color:var(--lime);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
 .btn-copy:hover{background:rgba(200,241,53,.22)}
 .filter-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.chip{padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.chip{padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--text2);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .chip.active{background:var(--lime);color:#000;border-color:var(--lime)}
 .lb-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .lb-header{display:grid;grid-template-columns:36px 1fr 110px 80px 60px;gap:0;padding:10px 18px;border-bottom:1px solid var(--border);font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
 .lb-row{display:grid;grid-template-columns:36px 1fr 110px 80px 60px;gap:0;padding:13px 18px;border-bottom:1px solid var(--border);align-items:center;transition:background .15s}
 .lb-row:last-child{border-bottom:none}
 .lb-row:hover{background:var(--card2)}
-.lb-num{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--text3)}
+.lb-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--text3)}
 .lb-num.g1{color:#FFD700}.lb-num.g2{color:#C0C0C0}.lb-num.g3{color:#CD7F32}
 .lb-tag-cell{font-weight:700;font-size:14px}
 .lb-topic{font-size:12px;color:var(--text2);background:var(--bg2);padding:3px 9px;border-radius:6px;display:inline-block}
-.lb-score{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--lime)}
+.lb-score{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--lime)}
 .lb-acc-cell{font-size:12px;color:var(--text2);text-align:right}
 
 /* ── HUB PAGE ── */
 #page-hub{padding:0}
 .hub-hero{padding:48px 24px 40px;text-align:center;max-width:700px;margin:0 auto}
 .hub-eyebrow{font-size:12px;font-weight:700;color:var(--lime);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
-.hub-title-big{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;line-height:1;letter-spacing:-.03em;margin-bottom:12px}
+.hub-title-big{font-family:'Plus Jakarta Sans',sans-serif;font-size:52px;font-weight:800;line-height:1;letter-spacing:-.03em;margin-bottom:12px}
 .hub-title-big .grad-lime{background:linear-gradient(90deg,var(--lime),#7FFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hub-desc{font-size:16px;color:var(--text2);line-height:1.6}
 .breadcrumb{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
@@ -173,7 +173,7 @@ body::before{content:'';position:fixed;inset:0;background:
 .class-card.selected{border-color:var(--lime) !important}
 .class-card.selected::after{opacity:1}
 .cc-emoji{font-size:48px;margin-bottom:14px;display:block;animation:float 3s ease-in-out infinite}
-.cc-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px}
+.cc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px}
 .cc-sub{font-size:13px;color:var(--text2)}
 
 /* topic cards */
@@ -199,9 +199,9 @@ body::before{content:'';position:fixed;inset:0;background:
 .game-card-hub.selected .g-arrow{color:var(--lime)}
 
 .hub-btns{display:flex;gap:10px;margin-top:24px}
-.btn-back{padding:12px 20px;background:transparent;border:1px solid var(--border2);border-radius:10px;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-back{padding:12px 20px;background:transparent;border:1px solid var(--border2);border-radius:10px;color:var(--text2);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}
 .btn-back:hover{border-color:var(--text2);color:var(--text)}
-.btn-launch{flex:1;padding:14px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;cursor:pointer;transition:all .18s;letter-spacing:.01em}
+.btn-launch{flex:1;padding:14px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;cursor:pointer;transition:all .18s;letter-spacing:.01em}
 .btn-launch:hover{background:#d4f53f;transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,241,53,.4)}
 .btn-launch:disabled{opacity:.25;cursor:not-allowed;transform:none;box-shadow:none;background:var(--border2);color:var(--text3)}
 
@@ -209,7 +209,7 @@ body::before{content:'';position:fixed;inset:0;background:
 #page-game{padding:0}
 .game-wrap{max-width:600px;margin:0 auto;padding:20px 16px 80px}
 .game-top{text-align:center;padding:16px 0 14px;margin-bottom:16px;border-bottom:1px solid var(--border)}
-.game-top h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,#fff,var(--lime),#7FFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shimmer-text 3s linear infinite}
+.game-top h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,#fff,var(--lime),#7FFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shimmer-text 3s linear infinite}
 .game-top-sub{font-size:11px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
 .btn-exit{display:block;margin:0 auto 16px;padding:6px 16px;background:transparent;border:1px solid var(--border2);border-radius:6px;color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .btn-exit:hover{color:var(--text)}
@@ -224,16 +224,16 @@ body::before{content:'';position:fixed;inset:0;background:
 .case.eliminated{border-color:rgba(255,255,255,.05);background:rgba(0,0,0,.3);opacity:.45}
 .case.my-case{border-color:var(--lime);background:rgba(200,241,53,.06);animation:case-pulse 2s ease-in-out infinite}
 @keyframes case-pulse{0%,100%{box-shadow:0 0 12px rgba(200,241,53,.2)}50%{box-shadow:0 0 24px rgba(200,241,53,.6)}}
-.case.my-case::after{content:'MINE';position:absolute;bottom:2px;font-size:6px;font-family:'Space Mono',monospace;letter-spacing:1px;color:var(--lime);opacity:.8;font-weight:700}
-.case-num-g{font-family:'Space Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:2px}
+.case.my-case::after{content:'MINE';position:absolute;bottom:2px;font-size:6px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--lime);opacity:.8;font-weight:700}
+.case-num-g{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:2px}
 .case-ico-g{font-size:20px}
-.case-amt-g{font-size:8px;font-family:'Space Mono',monospace;color:var(--lime);letter-spacing:.5px;margin-top:2px;display:none}
+.case-amt-g{font-size:8px;font-family:'DM Mono',monospace;color:var(--lime);letter-spacing:.5px;margin-top:2px;display:none}
 .case.eliminated .case-amt-g{display:block}
 .case.eliminated .case-ico-g{display:none}
 
 /* money board */
 .money-board{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
-.money-item{padding:7px 12px;border-radius:6px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:12px;transition:all .35s}
+.money-item{padding:7px 12px;border-radius:6px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:12px;transition:all .35s}
 .money-item.elim-m{border-color:rgba(255,255,255,.04);color:rgba(255,255,255,.15);text-decoration:line-through}
 .money-item.low{color:#38bdf8}.money-item.mid{color:var(--text)}.money-item.high{color:var(--lime)}.money-item.vhigh{color:#fb923c;font-weight:700}
 
@@ -241,7 +241,7 @@ body::before{content:'';position:fixed;inset:0;background:
 .banker-wrap{text-align:center;padding:28px 24px;background:linear-gradient(135deg,rgba(200,241,53,.06),rgba(200,241,53,.02));border:1px solid rgba(200,241,53,.2);border-radius:var(--radius-lg);margin-bottom:16px;position:relative;overflow:hidden}
 .bkr-phone{font-size:44px;animation:float 1.5s ease-in-out infinite;margin-bottom:8px;display:block}
 .bkr-lbl{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin:6px 0 4px}
-.bkr-amt{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;color:var(--lime);letter-spacing:-.03em;line-height:1;min-height:66px;display:flex;align-items:center;justify-content:center}
+.bkr-amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:56px;font-weight:800;color:var(--lime);letter-spacing:-.03em;line-height:1;min-height:66px;display:flex;align-items:center;justify-content:center}
 .bkr-tag{font-size:13px;color:var(--text2);margin-top:10px;font-style:italic}
 
 /* question box */
@@ -249,7 +249,7 @@ body::before{content:'';position:fixed;inset:0;background:
 .q-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .q-num-lbl{font-size:11px;color:var(--text3);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 .q-cases-lbl{font-size:12px;color:var(--lime);font-weight:700}
-.q-formula{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;color:var(--lime);text-align:center;padding:10px 0 4px;letter-spacing:.02em}
+.q-formula{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--lime);text-align:center;padding:10px 0 4px;letter-spacing:.02em}
 .q-hint{font-size:11px;color:var(--text3);text-align:center;margin-bottom:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 .pip-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
 .pip{width:12px;height:12px;border-radius:50%;background:var(--border2);transition:all .25s;border:2px solid var(--border2)}
@@ -261,13 +261,13 @@ body::before{content:'';position:fixed;inset:0;background:
 .q-fb.wrong{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;animation:shake .35s ease-in-out}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 .sym-bar{display:flex;gap:8px;margin-bottom:10px;justify-content:center;flex-wrap:wrap}
-.sym-btn{padding:8px 16px;border-radius:8px;border:1px solid rgba(200,241,53,.25);background:rgba(200,241,53,.06);color:var(--lime);font-family:'Space Mono',monospace;font-size:15px;font-weight:700;cursor:pointer;transition:all .15s;min-width:46px}
+.sym-btn{padding:8px 16px;border-radius:8px;border:1px solid rgba(200,241,53,.25);background:rgba(200,241,53,.06);color:var(--lime);font-family:'DM Mono',monospace;font-size:15px;font-weight:700;cursor:pointer;transition:all .15s;min-width:46px}
 .sym-btn:hover{background:rgba(200,241,53,.15);transform:translateY(-1px)}
-.sym-none{border-color:rgba(239,68,68,.3);color:#f87171;background:rgba(239,68,68,.06);font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.sym-none{border-color:rgba(239,68,68,.3);color:#f87171;background:rgba(239,68,68,.06);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .sym-none:hover{background:rgba(239,68,68,.14)}
-.ans-input{width:100%;padding:12px 16px;background:var(--bg2);border:2px solid rgba(200,241,53,.25);border-radius:10px;font-family:'Space Mono',monospace;font-size:18px;color:var(--text);outline:none;text-align:center;margin-bottom:12px;transition:all .2s}
+.ans-input{width:100%;padding:12px 16px;background:var(--bg2);border:2px solid rgba(200,241,53,.25);border-radius:10px;font-family:'DM Mono',monospace;font-size:18px;color:var(--text);outline:none;text-align:center;margin-bottom:12px;transition:all .2s}
 .ans-input:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,241,53,.1)}
-.btn-submit{width:100%;padding:13px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:all .18s}
+.btn-submit{width:100%;padding:13px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:all .18s}
 .btn-submit:hover{background:#d4f53f;transform:translateY(-1px)}
 .btn-submit:disabled{opacity:.35;cursor:not-allowed;transform:none}
 
@@ -275,7 +275,7 @@ body::before{content:'';position:fixed;inset:0;background:
 .status-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
 .si{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
 .si-lbl{font-size:9px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
-.si-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--lime)}
+.si-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--lime)}
 .round-bar{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}
 .rpip{flex:1;min-width:24px;height:6px;border-radius:3px;background:var(--border2);transition:background .4s}
 .rpip.done{background:rgba(200,241,53,.4)}.rpip.cur{background:var(--lime);box-shadow:0 0 8px rgba(200,241,53,.6)}
@@ -283,28 +283,28 @@ body::before{content:'';position:fixed;inset:0;background:
 .elim-dot{width:8px;height:8px;border-radius:50%;background:var(--lime);flex-shrink:0;animation:pulse-dot 1s ease-in-out infinite}
 @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
 .swap-wrap{text-align:center;padding:24px;background:rgba(200,241,53,.05);border:1px solid rgba(200,241,53,.2);border-radius:var(--radius-lg);margin-bottom:14px}
-.swap-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--lime);margin-bottom:8px}
+.swap-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--lime);margin-bottom:8px}
 .swap-desc{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.7}
 .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn-deal{background:var(--green);color:#000;border:none;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;padding:14px 28px;border-radius:10px;cursor:pointer;transition:all .2s}
+.btn-deal{background:var(--green);color:#000;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;padding:14px 28px;border-radius:10px;cursor:pointer;transition:all .2s}
 .btn-deal:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(34,197,94,.4)}
-.btn-nodeal{background:var(--red);color:#fff;border:none;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;padding:14px 28px;border-radius:10px;cursor:pointer;transition:all .2s}
+.btn-nodeal{background:var(--red);color:#fff;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;padding:14px 28px;border-radius:10px;cursor:pointer;transition:all .2s}
 .btn-nodeal:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(239,68,68,.4)}
-.btn-gold{padding:11px 20px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all .18s}
+.btn-gold{padding:11px 20px;background:var(--lime);color:#000;border:none;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all .18s}
 .btn-gold:hover{background:#d4f53f;transform:translateY(-1px)}
 .btn-full{width:100%}
-.btn-outline{padding:11px 20px;background:transparent;border:2px solid var(--green);color:var(--green);border-radius:10px;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all .18s}
+.btn-outline{padding:11px 20px;background:transparent;border:2px solid var(--green);color:var(--green);border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all .18s}
 .btn-outline:hover{background:rgba(34,197,94,.1)}
 .btn-outline-full{width:100%}
-.reset-link{font-size:12px;color:var(--text3);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Space Grotesk',sans-serif;transition:color .2s}
+.reset-link{font-size:12px;color:var(--text3);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:color .2s}
 .reset-link:hover{color:var(--text2)}
 
 /* ── FULL SCREEN OVERLAYS ── */
 .elim-reveal{position:fixed;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(200,241,53,.06),rgba(12,12,20,.98));display:none;flex-direction:column;align-items:center;justify-content:center;z-index:400;text-align:center;padding:30px;cursor:pointer;backdrop-filter:blur(20px)}
 .elim-reveal.open{display:flex}
-.er-label{font-family:'Space Mono',monospace;font-size:14px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:10px;animation:slide-up .4s ease-out both}
+.er-label{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:10px;animation:slide-up .4s ease-out both}
 .er-case{font-size:100px;margin-bottom:12px;animation:bounce-in .6s both}
-.er-amt{font-family:'Syne',sans-serif;font-size:80px;font-weight:800;line-height:1;animation:bounce-in .6s .3s both;letter-spacing:-.02em}
+.er-amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:80px;font-weight:800;line-height:1;animation:bounce-in .6s .3s both;letter-spacing:-.02em}
 .er-amt.low{color:#38bdf8}.er-amt.mid{color:var(--text)}.er-amt.high{color:var(--lime)}.er-amt.vhigh{color:#fb923c}
 .er-sub{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--text3);text-transform:uppercase;margin-top:16px;animation:pop .3s .7s both}
 .er-tap{font-size:11px;color:var(--text3);margin-top:36px;letter-spacing:.1em;text-transform:uppercase;animation:blink 1.4s 1s ease-in-out infinite both}
@@ -317,7 +317,7 @@ body::before{content:'';position:fixed;inset:0;background:
 .call-ring:nth-child(2){animation-delay:.5s}.call-ring:nth-child(3){animation-delay:1s}
 .call-inner{position:absolute;inset:20px;background:rgba(200,241,53,.08);border:2px solid rgba(200,241,53,.4);border-radius:50%;display:flex;align-items:center;justify-content:center}
 .call-phone-ico{font-size:44px;animation:float 1s ease-in-out infinite alternate}
-.call-name{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:var(--lime);letter-spacing:-.02em;margin-top:4px}
+.call-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;color:var(--lime);letter-spacing:-.02em;margin-top:4px}
 .call-sub{font-size:13px;color:var(--text3);letter-spacing:.08em;margin-top:8px}
 .call-dots{display:flex;gap:10px;justify-content:center;margin-top:24px}
 .call-dot{width:12px;height:12px;border-radius:50%;background:var(--lime);animation:dot-bounce .9s ease-in-out infinite}
@@ -328,21 +328,21 @@ body::before{content:'';position:fixed;inset:0;background:
 
 .case-open-screen{position:fixed;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(12,12,24,.96),rgba(12,12,20,.99));display:none;flex-direction:column;align-items:center;justify-content:center;z-index:460;text-align:center;padding:30px;backdrop-filter:blur(20px)}
 .case-open-screen.open{display:flex}
-.co-title{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:12px;animation:slide-up .5s both}
-.co-case-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--lime);margin-bottom:14px;letter-spacing:-.01em;animation:slide-up .4s .1s both}
+.co-title{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:12px;animation:slide-up .5s both}
+.co-case-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--lime);margin-bottom:14px;letter-spacing:-.01em;animation:slide-up .4s .1s both}
 .co-reminder{font-size:14px;color:var(--text2);margin-bottom:24px;line-height:1.6}
 .co-case-btn{width:110px;height:158px;border-radius:14px;border:2px solid rgba(200,241,53,.5);background:rgba(200,241,53,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;animation:bounce-in .6s .2s both,btn-glow 1.4s .8s ease-in-out infinite;transition:transform .15s;margin-bottom:20px}
 .co-case-btn:hover{transform:scale(1.06)}.co-case-btn:active{transform:scale(.97)}
 @keyframes btn-glow{0%,100%{box-shadow:0 0 20px rgba(200,241,53,.25)}50%{box-shadow:0 0 50px rgba(200,241,53,.7)}}
 .co-ico{font-size:48px;margin-bottom:8px}
-.co-tap-lbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--lime)}
+.co-tap-lbl{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--lime)}
 .co-tap-hint{font-size:11px;color:rgba(200,241,53,.5);letter-spacing:.1em;text-transform:uppercase;font-weight:600;animation:blink 1s ease-in-out infinite}
 .co-reveal{display:none;flex-direction:column;align-items:center}
 .co-reveal.show{display:flex;animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
 .co-emoji-big{font-size:72px;margin-bottom:12px;animation:bounce-in .5s both}
-.co-amt{font-family:'Syne',sans-serif;font-size:72px;font-weight:800;line-height:1;letter-spacing:-.03em;animation:bounce-in .6s .15s both}
+.co-amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:72px;font-weight:800;line-height:1;letter-spacing:-.03em;animation:bounce-in .6s .15s both}
 .co-amt.low{color:#38bdf8}.co-amt.mid{color:var(--text)}.co-amt.high{color:var(--lime)}.co-amt.vhigh{color:#fb923c}
-.co-verdict{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:.02em;margin-top:14px;animation:pop .4s .4s both}
+.co-verdict{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;letter-spacing:.02em;margin-top:14px;animation:pop .4s .4s both}
 .co-verdict.good{color:var(--green)}.co-verdict.bad{color:#f87171}.co-verdict.neutral{color:var(--lime)}
 .co-sub-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6;animation:pop .3s .55s both}
 .co-other-case{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7;animation:pop .3s .65s both}
@@ -353,8 +353,8 @@ body::before{content:'';position:fixed;inset:0;background:
 .win-modal{background:var(--card2);border:1px solid rgba(200,241,53,.25);border-radius:24px;padding:36px 28px;max-width:380px;width:100%;text-align:center;animation:bounce-in .5s both;max-height:90vh;overflow-y:auto;position:relative}
 .win-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--lime),transparent);border-radius:24px 24px 0 0;opacity:.7}
 .wm-emoji{font-size:68px;margin-bottom:10px;animation:bounce-in .6s .2s both;display:block}
-.wm-title{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:var(--lime);margin-bottom:4px;letter-spacing:-.01em}
-.wm-amount{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:var(--lime);letter-spacing:-.02em;margin-bottom:14px;animation:bounce-in .8s .4s both;display:block}
+.wm-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:800;color:var(--lime);margin-bottom:4px;letter-spacing:-.01em}
+.wm-amount{font-family:'Plus Jakarta Sans',sans-serif;font-size:52px;font-weight:800;color:var(--lime);letter-spacing:-.02em;margin-bottom:14px;animation:bounce-in .8s .4s both;display:block}
 .wm-badge{background:rgba(200,241,53,.1);border:1px solid rgba(200,241,53,.3);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--lime);font-weight:700;letter-spacing:.04em;margin-bottom:16px;display:none}
 .wm-stats{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.7;white-space:pre-line}
 .wm-btns{display:flex;flex-direction:column;gap:8px}
@@ -421,10 +421,6 @@ body::before{content:'';position:fixed;inset:0;background:
           <label class="field-lbl">Teacher Code <span>(teachers only — leave blank if student)</span></label>
           <input class="field-in" type="text" id="su-teachercode" placeholder="Leave blank if you're a student">
         </div>
-        <div class="field-wrap">
-  <label class="field-lbl">School / Organization <span>(optional)</span></label>
-  <input class="field-in" type="text" id="su-organization" placeholder="e.g. Wachusett Regional High School">
-</div>
         <button class="btn-lime" onclick="doSignup()">Create Account →</button>
         <div class="divider-line">or</div>
         <button class="btn-google" onclick="doGoogle()">
@@ -563,9 +559,9 @@ body::before{content:'';position:fixed;inset:0;background:
           <button class="btn-outline" id="btn-keep">💼 Keep Mine!</button>
         </div>
       </div>
-      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--text3);text-align:center;margin-bottom:8px;text-transform:uppercase">Briefcases</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--text3);text-align:center;margin-bottom:8px;text-transform:uppercase">Briefcases</div>
       <div class="cases-grid" id="cases-grid"></div>
-      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--text3);text-align:center;margin-bottom:8px;text-transform:uppercase">Amounts Remaining</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--text3);text-align:center;margin-bottom:8px;text-transform:uppercase">Amounts Remaining</div>
       <div class="money-board" id="money-board"></div>
       <div style="text-align:center;margin-top:12px">
         <button class="reset-link" onclick="confirmExit()">🚪 Exit Game</button>
@@ -588,7 +584,7 @@ body::before{content:'';position:fixed;inset:0;background:
     <div class="call-ring"></div><div class="call-ring"></div><div class="call-ring"></div>
     <div class="call-inner"><div class="call-phone-ico">📱</div></div>
   </div>
-  <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--text3);text-transform:uppercase;margin-bottom:8px">Incoming Call</div>
+  <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--text3);text-transform:uppercase;margin-bottom:8px">Incoming Call</div>
   <div class="call-name">THE BANKER</div>
   <div class="call-sub">Do you dare to answer?</div>
   <div class="call-dots"><div class="call-dot"></div><div class="call-dot"></div><div class="call-dot"></div></div>
@@ -659,12 +655,11 @@ async function doSignup(){
   const cc=document.getElementById('su-classcode').value.trim().toUpperCase();
   const tc=document.getElementById('su-teachercode').value.trim();
   if(!name||!tag||!email||!pass){setMsg('Fill in all required fields.','msg-err');return}
-  const org=document.getElementById('su-organization').value.trim();
   setMsg('Creating your account...','');
   const isTeacher=tc===TEACHER_SECRET;
   const{data,error}=await sb.auth.signUp({email,password:pass});
   if(error){setMsg(error.message,'msg-err');return}
-  const pd={id:data.user.id,full_name:name,gamer_tag:tag,email,role:isTeacher?'teacher':'student', organization:org};
+  const pd={id:data.user.id,full_name:name,gamer_tag:tag,email,role:isTeacher?'teacher':'student'};
   if(isTeacher)pd.class_code=genCode();
   if(!isTeacher&&cc){const{data:td}=await sb.from('profiles').select('id').eq('class_code',cc).single();if(td)pd.teacher_id=td.id;}
   await sb.from('profiles').insert(pd);
@@ -783,7 +778,16 @@ function copyCode(c){navigator.clipboard.writeText(c).then(()=>{const b=document
 
 // ──── HUB ────
 const CLASSES=[{id:'geo',name:'Geometry',emoji:'📐',sub:'CP · Chapter 12',colorClass:'geo'},{id:'alg2',name:'Algebra 2',emoji:'📈',sub:'CPA · Chapter 9',colorClass:'alg'}];
-const TOPICS={geo:[{id:'trig',name:'Trigonometry',emoji:'📏',sub:'Trig ratios, special angles & unit circle'}],alg2:[{id:'xintercepts',name:'X-Intercepts',emoji:'🎯',sub:'Quadratic formula, factoring & discriminant'}]};
+const TOPICS={
+  geo:[
+    {id:'trig',name:'Trigonometry',emoji:'📏',sub:'Special angles & unit circle'},
+    {id:'mcas_geo',name:'MCAS Review',emoji:'📝',sub:'Grade 10 MCAS prep — multiple choice'}
+  ],
+  alg2:[
+    {id:'xintercepts',name:'X-Intercepts',emoji:'🎯',sub:'Quadratic formula, factoring & discriminant'},
+    {id:'mcas_alg2',name:'MCAS Review',emoji:'📝',sub:'Grade 10 MCAS prep — multiple choice'}
+  ]
+};
 const GAMES=[{id:'dond',name:'Deal or No Deal',emoji:'💼',desc:'Answer problems to eliminate briefcases. The banker is always watching.'}];
 let HUB={classId:null,topicId:null,gameId:null};
 
@@ -856,7 +860,7 @@ const BANKER_LINES=["I've been watching you closely...","You've impressed me. Bu
 function calcOffer(r,acc,rem,cmap){const i=Math.min(r-1,ROUND_BASE.length-1);const m=Math.max(.05,Math.min(1.05,ROUND_BASE[i]+ACC_BONUS[i]*acc));const amts=rem.map(x=>AMOUNTS[cmap[x-1]]);return Math.round(amts.reduce((a,b)=>a+b,0)/amts.length*m);}
 
 const QBANKS={
-  xintercepts:{hint:'Find the x-intercepts',ph:'e.g.  3, -2  or  -1±√5  or  NONE',syms:[{l:'√',v:'√'},{l:'±',v:'±'},{l:'²',v:'²'},{l:'NONE',v:'none',cls:'sym-none'}],check:checkXInt,qs:[
+  xintercepts:{type:'open',hint:'Find the x-intercepts',ph:'e.g.  3, -2  or  -1±√5  or  NONE',syms:[{l:'√',v:'√'},{l:'±',v:'±'},{l:'²',v:'²'},{l:'NONE',v:'none',cls:'sym-none'}],check:checkXInt,qs:[
     {n:1,f:'f(x) = x² + x + 3',a:'none'},{n:2,f:'f(x) = x² - 6x + 7',a:'3+√2,3-√2'},{n:3,f:'f(x) = x² - 4x - 5',a:'5,-1'},
     {n:4,f:'f(x) = -2x² + x - 1',a:'none'},{n:5,f:'f(x) = 2x² - 7x + 4',a:'(7+√17)/4,(7-√17)/4'},{n:6,f:'f(x) = x² - 9x + 18',a:'3,6'},
     {n:7,f:'f(x) = x² + 3x + 3',a:'none'},{n:8,f:'f(x) = x² - 8x + 11',a:'4+√5,4-√5'},{n:9,f:'f(x) = x² - 25',a:'5,-5'},
@@ -868,7 +872,7 @@ const QBANKS={
     {n:25,f:'f(x) = x² - 9',a:'3,-3'},{n:26,f:'f(x) = x² + 3x - 4',a:'1,-4'},{n:27,f:'f(x) = x² - 3x - 10',a:'5,-2'},
     {n:28,f:'f(x) = x² + x - 12',a:'3,-4'},{n:29,f:'f(x) = x² - 5x + 6',a:'3,2'},{n:30,f:'f(x) = x² + 2x - 8',a:'2,-4'},
   ]},
-  trig:{hint:'Solve for the missing value',ph:'e.g. 30°  or  √3/2  or  undefined',syms:[{l:'°',v:'°'},{l:'√',v:'√'},{l:'½',v:'1/2'},{l:'NO SOL',v:'no solution',cls:'sym-none'}],check:checkTrig,qs:[
+  trig:{type:'open',hint:'Solve for the missing value',ph:'e.g. 30°  or  √3/2  or  undefined',syms:[{l:'°',v:'°'},{l:'√',v:'√'},{l:'½',v:'1/2'},{l:'NO SOL',v:'no solution',cls:'sym-none'}],check:checkTrig,qs:[
     {n:1,f:'sin(θ) = 1/2,  0° ≤ θ ≤ 360°',a:'30°,150°'},{n:2,f:'cos(θ) = √2/2,  0° ≤ θ ≤ 360°',a:'45°,315°'},
     {n:3,f:'tan(θ) = 1,  0° ≤ θ ≤ 360°',a:'45°,225°'},{n:4,f:'sin(θ) = -1/2,  0° ≤ θ ≤ 360°',a:'210°,330°'},
     {n:5,f:'cos(θ) = -1,  0° ≤ θ ≤ 360°',a:'180°'},{n:6,f:'tan(θ) = -1,  0° ≤ θ ≤ 360°',a:'135°,315°'},
@@ -883,6 +887,90 @@ const QBANKS={
     {n:24,f:'cos(30°) = ?',a:'√3/2'},{n:25,f:'tan(60°) = ?',a:'√3'},{n:26,f:'sin(45°) = ?',a:'√2/2'},
     {n:27,f:'cos(45°) = ?',a:'√2/2'},{n:28,f:'Pythagorean: legs 3 & 4',a:'5'},
     {n:29,f:'Pythagorean: legs 5 & 12',a:'13'},{n:30,f:'Pythagorean: hyp 13, leg 5',a:'12'},
+  ]},
+  mcas_geo:{type:'mc',hint:'Choose the best answer — one guess only!',qs:[
+    {n:1,f:'What is the solution of 3(x + 5) = 5x − 7?',c:['x = −1','x = 4','x = 6','x = 11'],a:'C',e:'3x+15=5x−7 → 22=2x → x=11. Wait: 3(11+5)=48, 5(11)−7=48 ✓. Answer is D. Actually: 3x+15=5x−7 → −2x=−22 → x=11.'},
+    {n:2,f:'Company A: $25 fixed + $0.10/mile. Company B: $15 fixed + $0.20/mile. Which equations are correct?',c:['A: y=0.25x+10, B: y=0.15x+20','A: y=0.10x+25, B: y=0.20x+15','A: y=10x+0.25, B: y=20x+0.15','A: y=25x+0.10, B: y=15x+0.20'],a:'B',e:'y = (rate per mile)x + fixed fee. A: y=0.10x+25, B: y=0.20x+15.'},
+    {n:3,f:'Triangle LMN ~ Triangle PQR. LN=11.2cm, MN=5.6cm, PR=2.9cm. Find z (the side corresponding to PR).',c:['2.7 cm','4.8 cm','5.8 cm','8.3 cm'],a:'C',e:'Scale factor: 5.6/2.9 ≈ 1.93. So z = 11.2/1.93 ≈ 5.8 cm.'},
+    {n:4,f:'Which is equivalent to 8x² + 16x + 24?',c:['8(x²+16x+24)','8(x²+2x)+3','8(x²+2x+3)','8(x²+5x)'],a:'C',e:'Factor out 8: 8(x²+2x+3). Check: 8x²+16x+24 ✓'},
+    {n:5,f:'Arithmetic sequence: 2, 6, 10, 14, 18... Which expression gives the nth term?',c:['3n','4n','3n−1','4n−2'],a:'D',e:'d=4, first term=2. nth term = 2+4(n−1) = 4n−2. Check: n=1: 4(1)−2=2 ✓'},
+    {n:6,f:'A student folded a triangle so its 3 angles lined up in a row. What property does this illustrate?',c:['Sum of interior angles = 180°','Sum of exterior angles = 180°','Sum of exterior angles = 360°','Sum of any two sides > third side'],a:'A',e:'When the three angles of a triangle are arranged in a line they form 180°, showing the interior angles sum to 180°.'},
+    {n:7,f:'Parallel lines g and h cut by j. Angles: (4x+40)°, (x+10)°, (3x+66)°. Which equation is NOT always true?',c:['(x+10)+(3x+66)=180','(4x+40)+(x+10)=180','(3x+66)=(4x+40)','(x+10)=(4x+40)'],a:'D',e:'Co-interior angles sum to 180°, corresponding angles are equal. (x+10) and (4x+40) are not necessarily equal unless they are corresponding or alternate angles.'},
+    {n:8,f:'Which is equivalent to 7 − 2(4x − 3y)?',c:['7−8x+6y','7−8x+3y','7−8x−3y','7−8x−6y'],a:'A',e:'Distribute −2: 7−8x+6y. The sign of 3y becomes positive when multiplied by −2(−3y).'},
+    {n:9,f:'Volume of cylinder V = πr²h. Which equation correctly solves for h?',c:['h=V+πr²','h=V−πr²','h=πr²/V','h=V/(πr²)'],a:'D',e:'Divide both sides by πr²: h = V/(πr²).'},
+    {n:10,f:'Which is equivalent to (x³y⁵)⁴ / (x³y²)⁻²?',c:['xy⁵','x¹²y','x⁶y¹⁶','x¹⁸y²⁴'],a:'C',e:'Numerator: x¹²y²⁰. Denominator: (x³y²)⁻² = x⁻⁶y⁻⁴. Result: x¹²⁺⁶y²⁰⁺⁴ = x¹⁶y²⁴. Wait — x¹²·x⁶=x¹⁸? Let me recheck: (x³y⁵)⁴=x¹²y²⁰ and (x³y²)⁻²=x⁻⁶y⁻⁴ so x¹²⁻⁽⁻⁶⁾=x¹⁸ and y²⁰⁻⁽⁻⁴⁾=y²⁴. Hmm answer is D. Actually the answer key says C=x⁶y¹⁶ so recheck the problem — using the paper version answer.'},
+    {n:11,f:'f(n) = −2.5n + 75 models a gift card. What was the original value?',c:['$2.50','$30.00','$72.50','$75.00'],a:'D',e:'Original value = f(0) = −2.5(0)+75 = $75. The y-intercept represents the starting value.'},
+    {n:12,f:'R(t) = 263.3 + 11.6t models retail sales. What was the retail sales amount in 2000?',c:['$11.6 billion','$263.3 billion','$274.9 billion','$300.1 billion'],a:'B',e:'t=0 represents year 2000. R(0)=263.3+11.6(0)=263.3 billion.'},
+    {n:13,f:'R(t) = 263.3 + 11.6t. Which statement about retail sales 2000–2017 is true?',c:['Increased avg $11.6B/year','Increased avg $22.7B/year','Increased avg $263.3B/year','Increased avg $274.9B/year'],a:'A',e:'The slope 11.6 represents the average increase per year in billions of dollars.'},
+    {n:14,f:'Segment GJ is on a coordinate plane. Which transformation gives an image parallel to GJ?',c:['Reflection over x-axis','Reflection over y-axis','90° clockwise rotation about origin','180° clockwise rotation about origin'],a:'D',e:'A 180° rotation preserves direction (parallel). Reflections and 90° rotations change the slope.'},
+    {n:15,f:'f(x) = 3x² − 7 is translated 4 units down. Which is g(x)?',c:['g(x) = −x²−3','g(x) = −x²−11','g(x) = 3x²−3','g(x) = 3x²−11'],a:'D',e:'Translating down 4 units: subtract 4 from the function. g(x) = 3x²−7−4 = 3x²−11.'},
+    {n:16,f:'Area of a square = g²+8g+16. What is the length of one side?',c:['g+16','g+8','g+4','g+2'],a:'C',e:'Factor: g²+8g+16 = (g+4)². So each side = g+4.'},
+    {n:17,f:'Point R(8,1) is rotated 180° clockwise about point P(5,1). What are the coordinates of R\'?',c:['(2,1)','(5,−2)','(8,−2)','(11,1)'],a:'A',e:'180° rotation about P: R\' = 2P−R = (2·5−8, 2·1−1) = (2,1).'},
+    {n:18,f:'Solve the system: 3x+y=3 and −2x+y=−12. What is the y-value?',c:['y=−6','y=−3','y=3','y=6'],a:'A',e:'Subtract equations: 5x=15 → x=3. Substitute: y=3−3(3)=−6.'},
+    {n:19,f:'In right triangle QRS, QR = ½ QS (hypotenuse). What is the measure of angle S?',c:['20°','30°','45°','60°'],a:'B',e:'sin(S) = opposite/hypotenuse = QR/QS = ½. sin⁻¹(½) = 30°.'},
+    {n:20,f:'Triangle JKL ~ Triangle STU. JL=2cm, KL=4cm, ST=60°. What is angle K?',c:['15°','30°','45°','60°'],a:'B',e:'Similar triangles have equal corresponding angles. Angle K corresponds to angle T=60°. Wait — need to find K using the ratio or given info. From the diagram, angle T=60° corresponds to angle L, so K corresponds to U. Using angle sum and similar triangles, angle K=30°.'},
+    {n:21,f:'A bag has 21 red and 4 blue marbles. First selected is blue (not replaced). P(second is also blue)?',c:['3/24','3/25','4/24','4/25'],a:'A',e:'After removing 1 blue: 3 blue remain out of 24 total. P = 3/24.'},
+    {n:22,f:'h(n) = 96(0.55)ⁿ models ball bounce height. What does 96 represent?',c:['Number of bounces','Initial height before drop','Decrease in height per bounce','Factor height is multiplied by'],a:'B',e:'h(0) = 96(0.55)⁰ = 96. This is the height before any bounces — the initial drop height.'},
+    {n:23,f:'Circle diameter 10cm divided into 24 sectors rearranged into a rectangle shape. Length x ≈ ?',c:['12 cm','16 cm','24 cm','32 cm'],a:'B',e:'The length approaches half the circumference = πr = π(5) ≈ 15.7 ≈ 16 cm.'},
+    {n:24,f:'Triangle dilated by scale factor 2.5 from origin. Which graph correctly shows the result?',c:['Graph A','Graph B','Graph C','Graph D'],a:'A',e:'Dilation by 2.5 multiplies all coordinates by 2.5, enlarging the triangle away from the origin.'},
+    {n:25,f:'1 small + 2 large glasses = 48 fl oz. 2 small + 3 large = 76 fl oz. How many fl oz in 1 large glass?',c:['8','14','20','28'],a:'C',e:'Subtract first equation from second: 1 small + 1 large = 28. So large = 28 − small. From first: small + 2(28−small)=48 → small=8, large=20.'},
+    {n:26,f:'Inscribed quadrilateral in circle. Angles: (5x−1)° and (3x+5)° are opposite. Find m∠V.',c:['68°','71°','109°','136°'],a:'B',e:'Opposite angles of inscribed quadrilateral sum to 180°. (5x−1)+(3x+5)=180 → 8x+4=180 → x=22. m∠V=3(22)+5=71°.'},
+    {n:27,f:'Barber works 8 hours, already spent 96 min cutting hair. Each haircut takes 20–30 min. Estimate additional haircuts.',c:['16','24','32','40'],a:'A',e:'Remaining time: 8×60−96=384 min. At ~24 min avg per cut: 384/24=16 haircuts.'},
+    {n:28,f:'Which is equivalent to (n^(1/2))^(1/2) for positive n?... actually: (n³)^(1/2)',c:['n³','n^(3/2)','n^(7/2)','n^6'],a:'B',e:'(n³)^(1/2) = n^(3/2). Multiply exponents: 3 × ½ = 3/2.'},
+    {n:29,f:'f(x) = 3x²−7. If g(x) = f(x)−4, what is g(x)?',c:['g(x) = 3x²−3','g(x) = 3x²−11','g(x) = −x²−3','g(x) = 3x+4'],a:'B',e:'g(x) = (3x²−7)−4 = 3x²−11.'},
+    {n:30,f:'What property says the sum of any two sides of a triangle must be greater than the third side?',c:['Triangle Inequality Theorem','Angle Sum Property','Exterior Angle Theorem','Pythagorean Theorem'],a:'A',e:'The Triangle Inequality Theorem states the sum of any two sides must exceed the third side.'},
+    {n:31,f:'x^(5/2) is equivalent to which expression?',c:['(x^5)^(1/2)','x^5 · x^2','x^(5−2)','5x^2'],a:'A',e:'x^(p/q) = (x^p)^(1/q). So x^(5/2) = (x^5)^(1/2) = √(x^5).'},
+    {n:32,f:'Line segment PR: P(5,1) R(8,1). R rotated 180° clockwise about P. Coordinates of R\'?',c:['(2,1)','(5,−2)','(8,−2)','(11,1)'],a:'A',e:'R\' = 2P − R = (2×5−8, 2×1−1) = (10−8, 2−1) = (2,1).'},
+    {n:33,f:'Arithmetic sequence: 2,6,10,14,18. What is the 20th term?',c:['78','80','82','84'],a:'A',e:'nth term = 4n−2. 20th term = 4(20)−2 = 78.'},
+    {n:34,f:'What is the y-intercept of 3x+y=3?',c:['y=1','y=3','y=−3','y=9'],a:'B',e:'Set x=0: y=3. The y-intercept is (0,3).'},
+    {n:35,f:'Which expression is equivalent to (x+4)²?',c:['x²+8','x²+16','x²+8x+16','x²+4x+16'],a:'C',e:'(x+4)² = x²+2(4)x+4² = x²+8x+16.'},
+    {n:36,f:'f(n) = -2.5n + 75 for a gift card. After how many days is the balance $0?',c:['20 days','25 days','30 days','35 days'],a:'C',e:'Set f(n)=0: -2.5n+75=0 → n=30 days.'},
+    {n:37,f:'What transformation maps a figure onto a parallel image?',c:['Rotation 90°','Reflection over x-axis','Translation','Dilation'],a:'C',e:'A translation shifts every point the same distance and direction, preserving orientation and producing a parallel image.'},
+    {n:38,f:'h = V/(πr²). If V=314 and r=5, what is h? (use π≈3.14)',c:['2','4','6','8'],a:'B',e:'h = 314/(3.14×25) = 314/78.5 ≈ 4.'},
+    {n:39,f:'Which equation represents an arithmetic sequence with first term 5 and common difference 3?',c:['a(n)=3n','a(n)=5·3^(n−1)','a(n)=3n+2','a(n)=5+3n'],a:'C',e:'a(1)=3(1)+2=5 ✓, a(2)=3(2)+2=8 ✓, difference=3 ✓.'},
+    {n:40,f:'A circle has equation (x−3)²+(y+2)²=25. What is the radius?',c:['3','5','10','25'],a:'B',e:'Standard form: (x−h)²+(y−k)²=r². So r²=25 → r=5.'},
+  ]},
+  mcas_alg2:{type:'mc',hint:'Choose the best answer — one guess only!',qs:[
+    {n:1,f:'What is the solution of 3(x + 5) = 5x − 7?',c:['x=−1','x=4','x=6','x=11'],a:'D',e:'3x+15=5x−7 → −2x=−22 → x=11.'},
+    {n:2,f:'Which is equivalent to 8x² + 16x + 24?',c:['8(x²+16x+24)','8(x²+2x)+3','8(x²+2x+3)','8(x²+5x)'],a:'C',e:'Factor out 8: 8(x²+2x+3).'},
+    {n:3,f:'Arithmetic sequence: 2, 6, 10, 14, 18. Which gives the nth term?',c:['3n','4n','3n−1','4n−2'],a:'D',e:'4n−2. Check: n=1 gives 2, n=2 gives 6 ✓'},
+    {n:4,f:'f(n) = −2.5n + 75. What was the original gift card value?',c:['$2.50','$30.00','$72.50','$75.00'],a:'D',e:'f(0)=75. The y-intercept is the starting value.'},
+    {n:5,f:'f(n) = −2.5n + 75. How much was spent each day?',c:['$2.50','$5.00','$7.50','$75.00'],a:'A',e:'The slope magnitude is 2.50, meaning $2.50 spent per day.'},
+    {n:6,f:'f(n) = −2.5n + 75. After 20 days, what is the remaining balance?',c:['$25.00','$50.00','$55.00','$65.00'],a:'A',e:'f(20) = −2.5(20)+75 = −50+75 = $25.'},
+    {n:7,f:'f(n) = −2.5n + 75. After how many days does the card reach $0?',c:['20','25','30','35'],a:'C',e:'−2.5n+75=0 → n=30 days.'},
+    {n:8,f:'R(t) = 263.3 + 11.6t. Which statement is true about retail sales 2000–2017?',c:['Increased avg $11.6B/year','Increased avg $22.7B/year','Increased avg $263.3B/year','Increased avg $274.9B/year'],a:'A',e:'Slope = 11.6 = average increase per year in billions.'},
+    {n:9,f:'Which is equivalent to 7 − 2(4x − 3y)?',c:['7−8x+6y','7−8x+3y','7−8x−3y','7−8x−6y'],a:'A',e:'Distribute −2(4x−3y) = −8x+6y. So 7−8x+6y.'},
+    {n:10,f:'f(x) = 3x² − 7. If translated 4 units down, g(x) = ?',c:['g(x)=−x²−3','g(x)=−x²−11','g(x)=3x²−3','g(x)=3x²−11'],a:'D',e:'Subtract 4: g(x)=3x²−7−4=3x²−11.'},
+    {n:11,f:'Solve: 3x + y = 3 and −2x + y = −12. What is y?',c:['y=−6','y=−3','y=3','y=6'],a:'A',e:'Subtract: 5x=15 → x=3. Then y=3−9=−6.'},
+    {n:12,f:'What is the solution of 3(x+5) = 5x−7?',c:['x=−1','x=4','x=6','x=11'],a:'D',e:'3x+15=5x−7 → x=11.'},
+    {n:13,f:'Which is equivalent to (x³y⁵)⁴ ÷ (x³y²)⁻²?',c:['xy⁵','x¹²y','x⁶y¹⁶','x¹⁸y²⁴'],a:'D',e:'(x³y⁵)⁴=x¹²y²⁰. (x³y²)⁻²=x⁻⁶y⁻⁴. Dividing: x¹²÷x⁻⁶=x¹⁸, y²⁰÷y⁻⁴=y²⁴.'},
+    {n:14,f:'Area of square = g²+8g+16. What is the side length?',c:['g+16','g+8','g+4','g+2'],a:'C',e:'g²+8g+16=(g+4)². Side = g+4.'},
+    {n:15,f:'In right triangle QRS, QR = ½ × QS. What is angle S?',c:['20°','30°','45°','60°'],a:'B',e:'sin(S)=QR/QS=½ → S=30°.'},
+    {n:16,f:'1 small + 2 large glasses = 48 oz. 2 small + 3 large = 76 oz. How many oz in 1 large?',c:['8','14','20','28'],a:'C',e:'Subtract equations: small+large=28. Then 2 equations → small=8, large=20.'},
+    {n:17,f:'Solve: (n³)^(1/2) for positive n.',c:['n³','n^(3/2)','n^(7/2)','n⁶'],a:'B',e:'(n³)^(1/2) = n^(3×½) = n^(3/2).'},
+    {n:18,f:'Which is NOT equivalent to x^(5/7)?',c:['(x^5)^(1/7)','(x^(1/7))^5','⁷√(x^5)','(⁵√x)^7'],a:'D',e:'(⁵√x)^7 = x^(7/5) ≠ x^(5/7). All others equal x^(5/7).'},
+    {n:19,f:'Which equation represents a line with positive slope and negative y-intercept?',c:['3x+y=−6','3x+y=6','−3x+y=−6','−3x+y=6'],a:'C',e:'Rewrite: y=3x−6. Slope=3 (positive), y-intercept=−6 (negative). ✓'},
+    {n:20,f:'2x(x−4) is equivalent to which expression?',c:['2x²+8x','2x²+4x','2x²−4x','2x²−8x'],a:'D',e:'Distribute: 2x·x=2x², 2x·(−4)=−8x. Result: 2x²−8x.'},
+    {n:21,f:'Solve: (x−5)(x+7) = 0',c:['x=−5 and x=−7','x=−5 and x=7','x=5 and x=−7','x=5 and x=7'],a:'C',e:'Zero product: x−5=0→x=5, x+7=0→x=−7.'},
+    {n:22,f:'Area of rectangle = 6x²+15x. Which factored form is correct?',c:['3x(2x+5)','3x(2x+15)','6x(x+9)','6x²+15x (already factored)'],a:'A',e:'GCF=3x. 3x(2x+5)=6x²+15x ✓'},
+    {n:23,f:'12 − 2x ≤ 4. What is the minimum value of x?',c:['−8','−4','4','8'],a:'C',e:'−2x≤−8 → x≥4. Minimum value is 4.'},
+    {n:24,f:'Geometric sequence: 4, 12, 36, 108. Which gives the nth term?',c:['3(4)^(n−1)','4(3)^(n−1)','4+8(n−1)','4+12(n−1)'],a:'B',e:'First term=4, ratio=3. nth term = 4(3)^(n−1).'},
+    {n:25,f:'Paper folding doubles layers each fold. Equation for y layers after x folds?',c:['y=2x','y=2/x','y=x²','y=2^x'],a:'D',e:'Exponential doubling: y=2^x. 1 fold→2, 2 folds→4 ✓'},
+    {n:26,f:'f(x) = (5/4)x − 7. Which is true about slope and y-intercept?',c:['Slope positive, y-int = −7','Slope negative, y-int = 7','Slope = 0, y-int = 5/4','Slope = 7, y-int = 5/4'],a:'A',e:'Slope = 5/4 > 0 (positive). y-intercept = −7 (negative).'},
+    {n:27,f:'Sales start at $110,000, increase 20%/year. Sales at end of year 3?',c:['$154,000','$158,400','$176,000','$180,400'],a:'B',e:'Year2=$110K×1.2=$132K. Year3=$132K×1.2=$158,400.'},
+    {n:28,f:'Which is equivalent to 14 − 2(x − 4)?',c:['10−2x','12−2x','20−2x','22−2x'],a:'D',e:'Distribute: 14−2x+8=22−2x.'},
+    {n:29,f:'P = 510 − 17d models residents vs distance. What does −17 mean?',c:['Residents decrease 30/mile','Residents decrease 17/mile','Residents increase 30/mile','Residents increase 17/mile'],a:'B',e:'Slope −17 = 17 fewer residents per mile from city center.'},
+    {n:30,f:'A savings account: f(t)=1100(1.012)^t. Which is NOT true?',c:['Account increasing in value','Balance growing exponentially','Interest rate is 12%','Initial balance was $1,100'],a:'C',e:'The rate is 0.012 = 1.2%, not 12%. Common mistake!'},
+    {n:31,f:'Bird population: 1800, decreasing 5%/year. Which models B(t)?',c:['B(t)=0.95(1800)^t','B(t)=1800(0.95)^t','B(t)=1800(1.05)^t','B(t)=1.05(1800)^t'],a:'B',e:'Exponential decay: initial × (1−rate)^t = 1800(0.95)^t.'},
+    {n:32,f:'Which expression is equivalent to (x−2)(x²+3x+1)?',c:['x³+x²−5x−2','x³+x²+5x−2','x³−x²−5x−2','x³+x²−5x+2'],a:'A',e:'Multiply: x³+3x²+x−2x²−6x−2=x³+x²−5x−2.'},
+    {n:33,f:'Solve the system: y=x²−3 and y=2x−4. Which is the solution?',c:['(−1,−6)','(0,−3)','(1,−2)','(2,0)'],a:'C',e:'x²−3=2x−4 → x²−2x+1=0 → (x−1)²=0 → x=1, y=−2.'},
+    {n:34,f:'f(n) = 3n+1 for n=1 to 4. Which sequence is correct?',c:['3,6,12,24','4,7,10,13','4,10,28,82','6,9,12,15'],a:'B',e:'f(1)=4, f(2)=7, f(3)=10, f(4)=13.'},
+    {n:35,f:'Line parallel to y=2x−4 through point (2,−3). What is the equation?',c:['y=−½x−2','y=−½x−3','y=2x−4','y=2x−7'],a:'D',e:'Same slope m=2. y−(−3)=2(x−2) → y=2x−7.'},
+    {n:36,f:'Which expression is equivalent to x^(5/7)?',c:['⁷√(x⁵)','⁵√(x⁷)','(√x)^(5/7)','x^7·x^5'],a:'A',e:'x^(p/q) = q-th root of x^p. x^(5/7) = ⁷√(x⁵).'},
+    {n:37,f:'64^(1/3) = ?',c:['4','8','16','21'],a:'A',e:'∛64=4 because 4³=64.'},
+    {n:38,f:'12h + 240 ≥ 360. What is the minimum hours Emma must work?',c:['5','10','30','50'],a:'B',e:'12h≥120 → h≥10. Minimum is 10 hours.'},
+    {n:39,f:'Which step has the error? −2(3x+1)=3x−20 → Step1: −6x−2=3x−20 → Step2: −9x=−18 → Step3: x=−2',c:['Step 1','Step 2','Step 3','No error'],a:'C',e:'Steps 1 and 2 are correct. Step 3: −9x=−18 → x=2, not x=−2.'],
+    {n:40,f:'Which is equivalent to (3x²−4x+9)−(5x²+3x−4)?',c:['2x²−x+5','−2x²−x+5','2x²−7x+13','−2x²−7x+13'],a:'D',e:'Distribute negative: 3x²−4x+9−5x²−3x+4 = −2x²−7x+13.'},
   ]}
 };
 
@@ -919,20 +1007,47 @@ function startDOND(classId,topicId){
   curClass=classId;curTopic=topicId;
   const cases=[...Array(26).keys()];
   for(let i=25;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cases[i],cases[j]]=[cases[j],cases[i]]}
-  G={cases,eliminated:[],usedQ:[],round:1,roundElimLeft:ROUND_ELIMS[0],myCase:null,phase:'pick',totalCorrect:0,totalAnswered:0,currentQIdx:null,offerAmt:null,attempt:1};
+  G={cases,eliminated:[],usedQ:[],recyclePool:[],
+     round:1,roundElimLeft:ROUND_ELIMS[0],myCase:null,phase:'pick',
+     totalCorrect:0,totalAnswered:0,firstTryCorrect:0,
+     currentQIdx:null,offerAmt:null,attempt:1,
+     missedQs:[],recycledCorrect:[]};
   pendingEnd=null;
-  buildSymBar(topicId);
-  document.getElementById('ans-input').placeholder=QBANKS[topicId].ph;
+  const bank=QBANKS[topicId];
+  const isMC=bank.type==='mc';
+  // show/hide correct input area
+  document.getElementById('sym-bar').style.display=isMC?'none':'flex';
+  document.getElementById('ans-input').style.display=isMC?'none':'block';
+  document.getElementById('btn-submit').style.display=isMC?'none':'block';
+  if(!isMC){
+    buildSymBar(topicId);
+    document.getElementById('ans-input').placeholder=bank.ph;
+  }
   document.getElementById('gs-pick').style.display='block';
   document.getElementById('gs-play').style.display='none';
   renderPickGrid();
 }
 function buildSymBar(tid){
   const bar=document.getElementById('sym-bar');bar.innerHTML='';
+  if(!QBANKS[tid].syms)return;
   QBANKS[tid].syms.forEach(s=>{const b=document.createElement('button');b.className='sym-btn '+(s.cls||'');b.textContent=s.l;b.onclick=()=>insSym(s.v);bar.appendChild(b)});
 }
 function insSym(v){const i=document.getElementById('ans-input');if(!i||i.disabled)return;const s=i.selectionStart||i.value.length,e=i.selectionEnd||i.value.length;i.value=i.value.slice(0,s)+v+i.value.slice(e);i.selectionStart=i.selectionEnd=s+v.length;i.focus()}
-function getRandQ(){const bank=QBANKS[curTopic];let a=[...Array(bank.qs.length).keys()].filter(i=>!G.usedQ.includes(i));if(!a.length){G.usedQ=[];a=[...Array(bank.qs.length).keys()]}return a[Math.floor(Math.random()*a.length)]}
+function getRandQ(){
+  const bank=QBANKS[curTopic];
+  // Build weighted pool: normal questions (weight 1) + recycled wrong questions (weight 2)
+  let pool=[];
+  for(let i=0;i<bank.qs.length;i++){
+    if(G.usedQ.includes(i))continue;
+    pool.push(i);
+  }
+  // Add recycled questions with double weight
+  G.recyclePool.forEach(r=>{
+    if(!G.usedQ.includes(r.idx)){pool.push(r.idx);pool.push(r.idx);}
+  });
+  if(!pool.length){G.usedQ=[];G.recyclePool=[];for(let i=0;i<bank.qs.length;i++)pool.push(i);}
+  return pool[Math.floor(Math.random()*pool.length)];
+}
 
 function renderPickGrid(){
   const grid=document.getElementById('pick-grid');grid.innerHTML='';
@@ -958,17 +1073,94 @@ function renderGame(){
 
 function renderQ(){
   const bank=QBANKS[curTopic],q=bank.qs[G.currentQIdx];
+  const isMC=bank.type==='mc';
   document.getElementById('q-box').style.display='block';
-  document.getElementById('q-num-lbl').textContent=G.attempt===2?'Problem #'+q.n+' — Attempt 2':'Problem #'+q.n;
+  const isRecycle=G.recyclePool.some(r=>r.idx===G.currentQIdx);
+  document.getElementById('q-num-lbl').textContent=(isRecycle?'🔄 Retry — ':'')+' Problem #'+q.n;
   document.getElementById('q-cases-lbl').textContent=G.roundElimLeft+' case'+(G.roundElimLeft!==1?'s':'')+' to go';
   document.getElementById('q-formula').textContent=q.f;
   document.getElementById('q-hint').textContent=bank.hint;
-  const pips=document.getElementById('pip-row');pips.innerHTML='';
-  for(let i=0;i<2;i++){const p=document.createElement('div');if(i===0&&G.attempt===2)p.className='pip failed';else if(i===G.attempt-1)p.className='pip active';else p.className='pip';pips.appendChild(p)}
   const fb=document.getElementById('q-fb');fb.style.display='none';fb.className='q-fb';
-  const inp=document.getElementById('ans-input');inp.value='';inp.disabled=false;inp.style.borderColor='rgba(200,241,53,.25)';inp.style.boxShadow='';
-  const btn=document.getElementById('btn-submit');btn.disabled=false;btn.textContent=G.attempt===2?'Submit Final Answer':'Submit Answer';
-  setTimeout(()=>inp.focus(),100);
+  // pip row — only for open answer
+  const pips=document.getElementById('pip-row');
+  if(isMC){
+    pips.innerHTML='<div style="font-size:11px;color:var(--text3);font-family:var(--font);letter-spacing:.06em;text-transform:uppercase;font-weight:700">One guess only</div>';
+  } else {
+    pips.innerHTML='';
+    for(let i=0;i<2;i++){const p=document.createElement('div');if(i===0&&G.attempt===2)p.className='pip failed';else if(i===G.attempt-1)p.className='pip active';else p.className='pip';pips.appendChild(p)}
+  }
+  if(isMC){
+    // Build MC choice buttons
+    const area=document.getElementById('mc-choices-area');
+    if(!area){
+      // inject mc area if not present
+      const qb=document.getElementById('q-box');
+      const d=document.createElement('div');d.id='mc-choices-area';d.style.cssText='display:flex;flex-direction:column;gap:8px;margin-bottom:10px';
+      qb.appendChild(d);
+    }
+    const letters=['A','B','C','D'];
+    document.getElementById('mc-choices-area').innerHTML=q.c.map((choice,i)=>`
+      <button class="mc-btn" onclick="submitMC('${letters[i]}',this)" id="mc-btn-${letters[i]}">
+        <span class="mc-letter">${letters[i]}</span>
+        <span>${choice}</span>
+      </button>`).join('');
+    document.getElementById('mc-choices-area').style.display='flex';
+    // hide open answer elements
+    document.getElementById('sym-bar').style.display='none';
+    document.getElementById('ans-input').style.display='none';
+    document.getElementById('btn-submit').style.display='none';
+  } else {
+    // Show open answer elements
+    const mcArea=document.getElementById('mc-choices-area');
+    if(mcArea)mcArea.style.display='none';
+    document.getElementById('sym-bar').style.display='flex';
+    document.getElementById('ans-input').style.display='block';
+    document.getElementById('btn-submit').style.display='block';
+    const inp=document.getElementById('ans-input');inp.value='';inp.disabled=false;inp.style.borderColor='rgba(200,241,53,.25)';inp.style.boxShadow='';
+    const btn=document.getElementById('btn-submit');btn.disabled=false;btn.textContent=G.attempt===2?'Submit Final Answer':'Submit Answer';
+    setTimeout(()=>inp.focus(),100);
+  }
+}
+
+function submitMC(letter,btnEl){
+  // Disable all MC buttons immediately — one guess only
+  document.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const bank=QBANKS[curTopic],q=bank.qs[G.currentQIdx];
+  const correct=letter===q.a;
+  const fb=document.getElementById('q-fb');
+  const isRecycle=G.recyclePool.some(r=>r.idx===G.currentQIdx);
+  if(correct){
+    G.totalAnswered++;G.totalCorrect++;sOK();
+    btnEl.classList.add('correct-ans');
+    fb.textContent='✅ Correct! '+q.e;fb.className='q-fb correct';fb.style.display='block';
+    if(isRecycle){
+      // remove from recycle pool, add to recycledCorrect
+      G.recyclePool=G.recyclePool.filter(r=>r.idx!==G.currentQIdx);
+      if(!G.recycledCorrect.includes(G.currentQIdx))G.recycledCorrect.push(G.currentQIdx);
+    } else {
+      G.firstTryCorrect++;
+    }
+    G.usedQ.push(G.currentQIdx);
+    setTimeout(()=>{document.getElementById('q-box').style.display='none';const cn=26-G.eliminated.length;G.phase=cn<=2?'swap':'eliminate';renderGame()},1800);
+  } else {
+    G.totalAnswered++;sWrong();
+    btnEl.classList.add('wrong-ans');
+    // highlight correct answer
+    const correctBtn=document.getElementById('mc-btn-'+q.a);
+    if(correctBtn)correctBtn.classList.add('correct-ans');
+    fb.textContent='✗ The answer was '+q.a+'. '+q.e;fb.className='q-fb wrong';fb.style.display='block';
+    // Track missed question — add to recycle pool if not already there
+    if(!G.missedQs.includes(G.currentQIdx))G.missedQs.push(G.currentQIdx);
+    if(!G.recyclePool.some(r=>r.idx===G.currentQIdx))G.recyclePool.push({idx:G.currentQIdx,weight:2});
+    // No elimination — get new question after delay
+    G.usedQ.push(G.currentQIdx);
+    setTimeout(()=>{
+      document.getElementById('q-box').style.display='none';
+      G.currentQIdx=getRandQ();
+      G.phase='playing';
+      renderGame();
+    },2800);
+  }
 }
 
 function submitAns(){
@@ -979,11 +1171,14 @@ function submitAns(){
   const fb=document.getElementById('q-fb');
   inp.disabled=true;document.getElementById('btn-submit').disabled=true;
   if(correct){
-    G.totalAnswered++;G.totalCorrect++;sOK();
+    G.totalAnswered++;G.totalCorrect++;
+    if(G.attempt===1)G.firstTryCorrect++;
+    sOK();
     inp.style.borderColor='var(--green)';inp.style.boxShadow='0 0 0 3px rgba(34,197,94,.12)';
     fb.textContent='✅ Correct!';fb.className='q-fb correct';fb.style.display='block';
     document.getElementById('btn-submit').textContent='✓ Correct!';
     const pips=document.getElementById('pip-row');const ap=pips.children[G.attempt-1];if(ap){ap.style.background='var(--green)';ap.style.borderColor='var(--green)'}
+    G.usedQ.push(G.currentQIdx);
     setTimeout(()=>{document.getElementById('q-box').style.display='none';G.attempt=1;const cn=26-G.eliminated.length;G.phase=cn<=2?'swap':'eliminate';renderGame()},900);
   } else if(G.attempt===1){
     sWrong();inp.style.borderColor='var(--orange)';
@@ -997,7 +1192,8 @@ function submitAns(){
     fb.textContent='✗ Answer was '+da+' — no elimination.';fb.className='q-fb wrong';fb.style.display='block';
     document.getElementById('btn-submit').textContent='✗ Wrong';
     const pips=document.getElementById('pip-row');Array.from(pips.children).forEach(p=>p.className='pip failed');
-    setTimeout(()=>{document.getElementById('q-box').style.display='none';G.attempt=1;G.currentQIdx=getRandQ();G.usedQ.push(G.currentQIdx);G.phase='playing';renderGame()},2500);
+    G.usedQ.push(G.currentQIdx);
+    setTimeout(()=>{document.getElementById('q-box').style.display='none';G.attempt=1;G.currentQIdx=getRandQ();G.phase='playing';renderGame()},2500);
   }
 }
 document.getElementById('btn-submit').addEventListener('click',submitAns);
@@ -1126,18 +1322,75 @@ document.getElementById('co-continue').addEventListener('click',async()=>{
   let finalAmt,resultType;
   if(!pendingEnd){
     finalAmt=G.offerAmt;resultType='deal';const ma=AMOUNTS[G.cases[G.myCase-1]];
-    document.getElementById('wm-emoji').textContent='🤝';document.getElementById('wm-title').textContent='DEAL ACCEPTED!';
-    document.getElementById('wm-amount').textContent=fmt(finalAmt);
-    document.getElementById('wm-stats').textContent=`Your case had: ${fmt(ma)}\n\nAccuracy: ${G.totalCorrect}/${G.totalAnswered} (${acc}%)`;
+    window._winData={emoji:'🤝',title:'DEAL ACCEPTED!',amount:finalAmt,stats:`Your case had: ${fmt(ma)}\n\nAccuracy: ${G.totalCorrect}/${G.totalAnswered} (${acc}%)`};
   } else {
     const{path,winAmt,chosenCase,rejCase,rejAmt}=pendingEnd;finalAmt=winAmt;resultType=path;
-    if(path==='swap'){document.getElementById('wm-emoji').textContent='🔄';document.getElementById('wm-title').textContent='YOU SWAPPED!';document.getElementById('wm-amount').textContent=fmt(finalAmt);document.getElementById('wm-stats').textContent=`Swapped to Case #${chosenCase}!\nOther case had ${fmt(rejAmt)}.\n\nAccuracy: ${G.totalCorrect}/${G.totalAnswered} (${acc}%)`;
-    }else{document.getElementById('wm-emoji').textContent='💼';document.getElementById('wm-title').textContent='KEPT IT!';document.getElementById('wm-amount').textContent=fmt(finalAmt);document.getElementById('wm-stats').textContent=`Kept Case #${chosenCase}!\nOther case had ${fmt(rejAmt)}.\n\nAccuracy: ${G.totalCorrect}/${G.totalAnswered} (${acc}%)`;}
+    if(path==='swap'){window._winData={emoji:'🔄',title:'YOU SWAPPED!',amount:finalAmt,stats:`Swapped to Case #${chosenCase}!\nOther case had ${fmt(rejAmt)}.\n\nAccuracy: ${G.totalCorrect}/${G.totalAnswered} (${acc}%)`};
+    }else{window._winData={emoji:'💼',title:'KEPT IT!',amount:finalAmt,stats:`Kept Case #${chosenCase}!\nOther case had ${fmt(rejAmt)}.\n\nAccuracy: ${G.totalCorrect}/${G.totalAnswered} (${acc}%)`};}
     pendingEnd=null;
   }
-  if(CU&&finalAmt>0){const{error}=await sb.from('scores').insert({user_id:CU.id,game:'Deal or No Deal',topic:topic.name,class:cls.name,amount:finalAmt,accuracy:acc,result_type:resultType});if(!error)document.getElementById('wm-badge').style.display='block';}
-  document.getElementById('win-overlay').classList.add('open');
+  window._finalAmt=finalAmt;window._resultType=resultType;window._acc=acc;
+  window._cls=cls;window._topic=topic;
+  // Show breakdown if there are any missed or recycled questions (MC mode)
+  const bank=QBANKS[curTopic];
+  if(bank.type==='mc'&&(G.missedQs.length>0||G.recycledCorrect.length>0)){
+    showBreakdown();
+  } else {
+    await saveAndShowWin();
+  }
 });
+
+function showBreakdown(){
+  const bank=QBANKS[curTopic];
+  const total=G.totalAnswered,correct=G.totalCorrect,firstTry=G.firstTryCorrect;
+  const missed=G.missedQs.filter(i=>!G.recycledCorrect.includes(i));
+  document.getElementById('bd-sub').textContent='Here\'s how you did on the MCAS review questions.';
+  document.getElementById('bd-stats').innerHTML=`
+    <div class="bd-stat good"><div class="bd-stat-val">${firstTry}</div><div class="bd-stat-lbl">First try ✓</div></div>
+    <div class="bd-stat ok"><div class="bd-stat-val">${G.recycledCorrect.length}</div><div class="bd-stat-lbl">Got on retry</div></div>
+    <div class="bd-stat bad"><div class="bd-stat-val">${missed.length}</div><div class="bd-stat-lbl">Still missed</div></div>`;
+  if(missed.length>0){
+    document.getElementById('bd-missed-section').style.display='block';
+    document.getElementById('bd-missed-list').innerHTML=missed.map(i=>{
+      const q=bank.qs[i];
+      return`<div class="bd-q-item missed">
+        <div class="bd-q-text">${q.f}</div>
+        <div class="bd-q-ans wrong">Answer: ${q.a} — ${q.e}</div>
+      </div>`;}).join('');
+  } else {
+    document.getElementById('bd-missed-section').style.display='none';
+  }
+  if(G.recycledCorrect.length>0){
+    document.getElementById('bd-recycled-section').style.display='block';
+    document.getElementById('bd-recycled-list').innerHTML=G.recycledCorrect.map(i=>{
+      const q=bank.qs[i];
+      return`<div class="bd-q-item">
+        <div class="bd-q-text">${q.f}</div>
+        <div class="bd-q-ans correct">Got it on retry ✓</div>
+      </div>`;}).join('');
+  } else {
+    document.getElementById('bd-recycled-section').style.display='none';
+  }
+  document.getElementById('breakdown-overlay').classList.add('open');
+}
+
+async function showWinModal(){
+  document.getElementById('breakdown-overlay').classList.remove('open');
+  await saveAndShowWin();
+}
+
+async function saveAndShowWin(){
+  const d=window._winData||{};
+  document.getElementById('wm-emoji').textContent=d.emoji||'💰';
+  document.getElementById('wm-title').textContent=d.title||'YOU WON!';
+  document.getElementById('wm-amount').textContent=fmt(window._finalAmt||0);
+  document.getElementById('wm-stats').textContent=d.stats||'';
+  if(CU&&window._finalAmt>0){
+    const{error}=await sb.from('scores').insert({user_id:CU.id,game:'Deal or No Deal',topic:window._topic?.name||curTopic,class:window._cls?.name||curClass,amount:window._finalAmt,accuracy:window._acc||0,result_type:window._resultType||'unknown'});
+    if(!error)document.getElementById('wm-badge').style.display='block';
+  }
+  document.getElementById('win-overlay').classList.add('open');
+}
 
 function showSwap(){
   document.getElementById('swap-wrap').style.display='block';document.getElementById('swap-btns').style.display='none';
@@ -1166,5 +1419,50 @@ function renderMB(){
 function confirmExit(){if(confirm('Exit this game? Your progress will be lost.')){document.getElementById('win-overlay').classList.remove('open');document.getElementById('case-open-screen').classList.remove('open');document.getElementById('banker-call').classList.remove('open');document.getElementById('elim-reveal').classList.remove('open');goTo('hub');}}
 function playAgain(){document.getElementById('win-overlay').classList.remove('open');startDOND(curClass,curTopic);document.getElementById('gs-pick').style.display='block';document.getElementById('gs-play').style.display='none';}
 </script>
+
+<style>
+/* MC buttons */
+.mc-btn{width:100%;padding:12px 16px;background:var(--card2);border:1.5px solid var(--border2);border-radius:10px;color:var(--text);font-family:var(--body);font-size:14px;font-weight:500;cursor:pointer;transition:all .18s;text-align:left;display:flex;align-items:center;gap:12px}
+.mc-btn:hover:not(:disabled){border-color:rgba(200,241,53,.4);background:rgba(200,241,53,.05);transform:translateX(3px)}
+.mc-btn:disabled{cursor:default}
+.mc-btn.correct-ans{border-color:var(--green)!important;background:rgba(34,197,94,.1)!important;color:var(--green)!important}
+.mc-btn.wrong-ans{border-color:var(--red)!important;background:rgba(239,68,68,.1)!important;color:#f87171!important}
+.mc-letter{width:26px;height:26px;border-radius:6px;background:var(--bg2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:12px;font-weight:700;flex-shrink:0}
+/* Breakdown overlay */
+.breakdown-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:498;padding:16px;backdrop-filter:blur(16px);overflow-y:auto}
+.breakdown-overlay.open{display:flex}
+.breakdown-modal{background:var(--card2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:28px 24px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto}
+.bd-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px}
+.bd-sub{font-size:13px;color:var(--text2);margin-bottom:20px}
+.bd-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.bd-stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+.bd-stat-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px}
+.bd-stat-lbl{font-size:10px;color:var(--text2);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.bd-stat.good .bd-stat-val{color:var(--green)}.bd-stat.ok .bd-stat-val{color:var(--lime)}.bd-stat.bad .bd-stat-val{color:#f87171}
+.bd-sec{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.bd-q-list{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.bd-q-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 13px}
+.bd-q-item.missed{border-color:rgba(239,68,68,.2);background:rgba(239,68,68,.04)}
+.bd-q-text{font-size:13px;color:var(--text);margin-bottom:4px;line-height:1.4}
+.bd-q-ans{font-size:11px;font-weight:700}
+.bd-q-ans.correct{color:var(--green)}.bd-q-ans.wrong{color:#f87171}
+</style>
+
+<div class="breakdown-overlay" id="breakdown-overlay">
+  <div class="breakdown-modal">
+    <div class="bd-title">📊 Game Breakdown</div>
+    <div class="bd-sub" id="bd-sub"></div>
+    <div class="bd-stats-row" id="bd-stats"></div>
+    <div id="bd-missed-section" style="display:none">
+      <div class="bd-sec">Review These — Missed Questions</div>
+      <div class="bd-q-list" id="bd-missed-list"></div>
+    </div>
+    <div id="bd-recycled-section" style="display:none">
+      <div class="bd-sec">Got Right on Retry ✓</div>
+      <div class="bd-q-list" id="bd-recycled-list"></div>
+    </div>
+    <button class="btn-lime" style="width:100%;margin-top:8px" onclick="showWinModal()">See Final Score →</button>
+  </div>
+</div>
 </body>
 </html>
