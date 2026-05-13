@@ -778,12 +778,14 @@ function copyCode(c){navigator.clipboard.writeText(c).then(()=>{const b=document
 
 // ──── HUB ────
 const CLASSES=[{id:'geo',name:'Geometry',emoji:'📐',sub:'CP · Chapter 12',colorClass:'geo'},{id:'alg2',name:'Algebra 2',emoji:'📈',sub:'CPA · Chapter 9',colorClass:'alg'}];
-const TOPICS={geo:[{id:'trig',name:'Trigonometry',emoji:'📏',sub:'Trig ratios, special angles & unit circle'}],alg2:[{id:'xintercepts',name:'X-Intercepts',emoji:'🎯',sub:'Quadratic formula, factoring & discriminant'}]};
-const GAMES=[{id:'dond',name:'Deal or No Deal',emoji:'💼',desc:'Answer problems to eliminate briefcases. The banker is always watching.'}];
+const TOPICS={geo:[{id:'trig',name:'Trigonometry',emoji:'📏',sub:'Trig ratios, special angles & unit circle'},{id:'mcas_geo',name:'MCAS Review',emoji:'📝',sub:'Grade 10 MCAS prep'}],alg2:[{id:'xintercepts',name:'X-Intercepts',emoji:'🎯',sub:'Quadratic formula, factoring & discriminant'},{id:'mcas_geo',name:'MCAS Review',emoji:'📝',sub:'Grade 10 MCAS prep'}]};
+const GAMES=[{id:'dond',name:'Deal or No Deal',emoji:'💼',desc:'Answer problems to eliminate briefcases. The banker is always watching.},{id:'mcas_alg2',name:'MCAS Review',emoji:'📝',sub:'Grade 10 MCAS prep'}'}];
 let HUB={classId:null,topicId:null,gameId:null};
 
 function initHub(){
-  HUB={classId:null,topicId:null,gameId:null};
+  HUB={classId:null,topicId:null,gameId:null};Yes that looks right! Now scroll left on that same line to find the geo topics section — it should say something like geo:[{id:'trig'...}] and you need to add the MCAS geo topic there too.
+  
+  
   document.getElementById('hub-step-class').style.display='block';
   document.getElementById('hub-step-topic').style.display='none';
   document.getElementById('hub-step-game').style.display='none';
@@ -879,6 +881,70 @@ const QBANKS={
     {n:27,f:'cos(45°) = ?',a:'√2/2'},{n:28,f:'Pythagorean: legs 3 & 4',a:'5'},
     {n:29,f:'Pythagorean: legs 5 & 12',a:'13'},{n:30,f:'Pythagorean: hyp 13, leg 5',a:'12'},
   ]}
+  ,mcas_geo:{type:'mc',hint:'Choose the best answer — one guess only!',qs:[
+{n:1,f:'What is the solution of 3(x + 5) = 5x − 7?',c:['A) x=−1','B) x=4','C) x=6','D) x=11'],a:'D',e:'3x+15=5x−7 → x=11'},
+{n:2,f:'Which is equivalent to 8x² + 16x + 24?',c:['A) 8(x²+16x+24)','B) 8(x²+2x)+3','C) 8(x²+2x+3)','D) 8(x²+5x)'],a:'C',e:'Factor out 8: 8(x²+2x+3)'},
+{n:3,f:'Arithmetic sequence 2,6,10,14,18. Which gives the nth term?',c:['A) 3n','B) 4n','C) 3n−1','D) 4n−2'],a:'D',e:'4n−2. Check: n=1 gives 2 ✓'},
+{n:4,f:'f(n) = −2.5n + 75 models a gift card. What was the original value?',c:['A) $2.50','B) $30.00','C) $72.50','D) $75.00'],a:'D',e:'f(0)=75. The y-intercept is the starting value.'},
+{n:5,f:'Which transformation gives an image parallel to the original segment?',c:['A) Reflection over x-axis','B) Reflection over y-axis','C) 90° clockwise rotation','D) 180° clockwise rotation'],a:'D',e:'180° rotation preserves direction — produces a parallel image.'},
+{n:6,f:'f(x) = 3x² − 7 translated 4 units down. Which is g(x)?',c:['A) g(x)=−x²−3','B) g(x)=−x²−11','C) g(x)=3x²−3','D) g(x)=3x²−11'],a:'D',e:'Subtract 4: g(x)=3x²−7−4=3x²−11'},
+{n:7,f:'Area of a square = g²+8g+16. What is the side length?',c:['A) g+16','B) g+8','C) g+4','D) g+2'],a:'C',e:'g²+8g+16=(g+4)². Side = g+4'},
+{n:8,f:'Solve the system: 3x+y=3 and −2x+y=−12. What is y?',c:['A) y=−6','B) y=−3','C) y=3','D) y=6'],a:'A',e:'5x=15 → x=3. Then y=3−9=−6'},
+{n:9,f:'In right triangle QRS, QR = half of QS. What is angle S?',c:['A) 20°','B) 30°','C) 45°','D) 60°'],a:'B',e:'sin(S)=QR/QS=0.5 → S=30°'},
+{n:10,f:'1 small + 2 large glasses = 48 oz. 2 small + 3 large = 76 oz. How many oz in 1 large?',c:['A) 8','B) 14','C) 20','D) 28'],a:'C',e:'Solve system: small=8, large=20'},
+{n:11,f:'Circle equation (x−3)²+(y+2)²=25. What is the radius?',c:['A) 3','B) 5','C) 10','D) 25'],a:'B',e:'r²=25 → r=5'},
+{n:12,f:'Which is equivalent to (x+4)²?',c:['A) x²+8','B) x²+16','C) x²+8x+16','D) x²+4x+16'],a:'C',e:'(x+4)²=x²+8x+16'},
+{n:13,f:'Arithmetic sequence 2,6,10,14,18. What is the 20th term?',c:['A) 78','B) 80','C) 82','D) 84'],a:'A',e:'4n−2. 20th term = 4(20)−2=78'},
+{n:14,f:'h(n)=96(0.55)^n models ball bounce height. What does 96 represent?',c:['A) Number of bounces','B) Initial drop height','C) Decrease per bounce','D) Multiplication factor'],a:'B',e:'h(0)=96. This is the starting height before any bounces.'},
+{n:15,f:'Two marbles: 7 red and 8 blue. Select one without replacing, then another. P(first red AND second blue)?',c:['A) 7/8 × 6/7','B) 7/15 × 6/14','C) 7/15 × 7/14','D) 7/15 × 8/14'],a:'D',e:'P(red)=7/15. Then P(blue)=8/14'},
+{n:16,f:'Which is equivalent to (n³)^(1/2)?',c:['A) n³','B) n^(3/2)','C) n^(7/2)','D) n⁶'],a:'B',e:'(n³)^(1/2)=n^(3/2)'},
+{n:17,f:'R(t)=263.3+11.6t models retail sales. What does 11.6 represent?',c:['A) Sales in year 2000','B) Average increase per year','C) Total sales over time','D) Starting year'],a:'B',e:'Slope=11.6 = average increase per year in billions.'},
+{n:18,f:'x^(5/2) is equivalent to which expression?',c:['A) (x^5)^(1/2)','B) x^5 · x^2','C) x^(5−2)','D) 5x^2'],a:'A',e:'x^(p/q)=(x^p)^(1/q). So x^(5/2)=(x^5)^(1/2)'},
+{n:19,f:'Point R(8,1) rotated 180° about point P(5,1). Coordinates of R prime?',c:['A) (2,1)','B) (5,−2)','C) (8,−2)','D) (11,1)'],a:'A',e:'R prime = 2P−R = (10−8, 2−1) = (2,1)'},
+{n:20,f:'Which equation represents exponential decay of 5% per year starting at 1800?',c:['A) B=0.95(1800)^t','B) B=1800(0.95)^t','C) B=1800(1.05)^t','D) B=1.05(1800)^t'],a:'B',e:'Exponential decay: initial × (1−rate)^t = 1800(0.95)^t'},
+{n:21,f:'What is the y-intercept of 3x+y=3?',c:['A) y=1','B) y=3','C) y=−3','D) y=9'],a:'B',e:'Set x=0: y=3'},
+{n:22,f:'Which is equivalent to 7 − 2(4x − 3y)?',c:['A) 7−8x+6y','B) 7−8x+3y','C) 7−8x−3y','D) 7−8x−6y'],a:'A',e:'Distribute −2: 7−8x+6y'},
+{n:23,f:'A circle has center (2,−4) and radius 4. Which is the equation?',c:['A) (x+2)²+(y−4)²=16','B) (x−2)²+(y+4)²=16','C) (x+2)²+(y−4)²=4','D) (x−2)²+(y+4)²=4'],a:'B',e:'Standard form with (h,k)=(2,−4) and r²=16'},
+{n:24,f:'What are the solutions of (x−5)(x+7)=0?',c:['A) x=−5 and x=−7','B) x=−5 and x=7','C) x=5 and x=−7','D) x=5 and x=7'],a:'C',e:'x−5=0→x=5, x+7=0→x=−7'},
+{n:25,f:'12 − 2x ≤ 4. What is the minimum value of x?',c:['A) −8','B) −4','C) 4','D) 8'],a:'C',e:'−2x≤−8 → x≥4. Minimum is 4'},
+{n:26,f:'Which expression is equivalent to the area 6x²+15x?',c:['A) 3x(2x+5)','B) 3x(2x+15)','C) 6x(x+9)','D) 6x+15x'],a:'A',e:'Factor out 3x: 3x(2x+5)=6x²+15x ✓'},
+{n:27,f:'f(n)=−2.5n+75. After how many days does the card reach $0?',c:['A) 20','B) 25','C) 30','D) 35'],a:'C',e:'−2.5n+75=0 → n=30'},
+{n:28,f:'Which equation represents a line with positive slope and negative y-intercept?',c:['A) 3x+y=−6','B) 3x+y=6','C) −3x+y=−6','D) −3x+y=6'],a:'C',e:'Rewrite: y=3x−6. Slope=3 positive, y-int=−6 negative ✓'},
+{n:29,f:'Geometric sequence: 4,12,36,108. Which gives the nth term?',c:['A) 3(4)^(n−1)','B) 4(3)^(n−1)','C) 4+8(n−1)','D) 4+12(n−1)'],a:'B',e:'First term=4, ratio=3. nth term=4(3)^(n−1)'},
+{n:30,f:'64^(1/3) = ?',c:['A) 4','B) 8','C) 16','D) 21'],a:'A',e:'Cube root of 64=4 because 4³=64'},
+]},
+mcas_alg2:{type:'mc',hint:'Choose the best answer — one guess only!',qs:[
+{n:1,f:'Solve: 3(1+2x)=4. What is x?',c:['A) x=1/6','B) x=1/3','C) x=2/3','D) x=7/6'],a:'A',e:'3+6x=4 → 6x=1 → x=1/6'},
+{n:2,f:'Which is equivalent to (3x²−4x+9)−(5x²+3x−4)?',c:['A) 2x²−x+5','B) −2x²−x+5','C) 2x²−7x+13','D) −2x²−7x+13'],a:'D',e:'Distribute negative: −2x²−7x+13'},
+{n:3,f:'What are the solutions of 4x(x−8)=0?',c:['A) x=−4 and x=8','B) x=0 and x=−8','C) x=0 and x=8','D) x=4 and x=−8'],a:'C',e:'Zero product: 4x=0→x=0, x−8=0→x=8'},
+{n:4,f:'Which equation has positive slope and negative y-intercept?',c:['A) 3x+y=−6','B) 3x+y=6','C) −3x+y=−6','D) −3x+y=6'],a:'C',e:'y=3x−6. Slope=3 positive, y-int=−6 negative ✓'},
+{n:5,f:'Area of rectangle = 6x²+15x. Which factored form is correct?',c:['A) 3x(2x+5)','B) 3x(2x+15)','C) 6x(x+9)','D) 6x(x)+15'],a:'A',e:'GCF=3x. 3x(2x+5)=6x²+15x ✓'},
+{n:6,f:'What are the solutions of (x−5)(x+7)=0?',c:['A) x=−5 and x=−7','B) x=−5 and x=7','C) x=5 and x=−7','D) x=5 and x=7'],a:'C',e:'x−5=0→x=5, x+7=0→x=−7'},
+{n:7,f:'f(x)=3x²−7. Translated 4 units down, g(x)=?',c:['A) g(x)=−x²−3','B) g(x)=−x²−11','C) g(x)=3x²−3','D) g(x)=3x²−11'],a:'D',e:'Subtract 4: 3x²−7−4=3x²−11'},
+{n:8,f:'Solve the system: 3x+y=3 and −2x+y=−12. What is y?',c:['A) y=−6','B) y=−3','C) y=3','D) y=6'],a:'A',e:'5x=15→x=3. y=3−9=−6'},
+{n:9,f:'12−2x ≤ 4. Minimum value of x?',c:['A) −8','B) −4','C) 4','D) 8'],a:'C',e:'−2x≤−8 → x≥4. Minimum=4'},
+{n:10,f:'f(t)=1100(1.012)^t models a savings account. Which is NOT true?',c:['A) Account is increasing','B) Balance growing exponentially','C) Interest rate is 12%','D) Initial balance was $1100'],a:'C',e:'Rate is 0.012=1.2%, not 12%'},
+{n:11,f:'Bird population: 1800, decreasing 5% per year. Which models B(t)?',c:['A) B=0.95(1800)^t','B) B=1800(0.95)^t','C) B=1800(1.05)^t','D) B=1.05(1800)^t'],a:'B',e:'Exponential decay: 1800(0.95)^t'},
+{n:12,f:'Sales start at $110000, increase 20% per year. Sales at end of year 3?',c:['A) $154000','B) $158400','C) $176000','D) $180400'],a:'B',e:'Year2=$132K. Year3=$132K×1.2=$158400'},
+{n:13,f:'Which is equivalent to 14−2(x−4)?',c:['A) 10−2x','B) 12−2x','C) 20−2x','D) 22−2x'],a:'D',e:'Distribute: 14−2x+8=22−2x'},
+{n:14,f:'Geometric sequence: 4,12,36,108. nth term?',c:['A) 3(4)^(n−1)','B) 4(3)^(n−1)','C) 4+8(n−1)','D) 4+12(n−1)'],a:'B',e:'First term=4, ratio=3. 4(3)^(n−1)'},
+{n:15,f:'Paper folding doubles layers each fold. Equation for y layers after x folds?',c:['A) y=2x','B) y=2/x','C) y=x²','D) y=2^x'],a:'D',e:'Exponential doubling: y=2^x'},
+{n:16,f:'f(x)=(5/4)x−7. Which is true?',c:['A) Slope positive, y-int=−7','B) Slope negative, y-int=7','C) Slope=0, y-int=5/4','D) Slope=7, y-int=5/4'],a:'A',e:'Slope=5/4 positive, y-intercept=−7'},
+{n:17,f:'Which is equivalent to (x−2)(x²+3x+1)?',c:['A) x³+x²−5x−2','B) x³+x²+5x−2','C) x³−x²−5x−2','D) x³+x²−5x+2'],a:'A',e:'Multiply out: x³+x²−5x−2'},
+{n:18,f:'Solve: y=x²−3 and y=2x−4. Which ordered pair is the solution?',c:['A) (−1,−6)','B) (0,−3)','C) (1,−2)','D) (2,0)'],a:'C',e:'x²−2x+1=0 → x=1, y=−2'},
+{n:19,f:'f(n)=3n+1 for n=1 to 4. Which sequence is correct?',c:['A) 3,6,12,24','B) 4,7,10,13','C) 4,10,28,82','D) 6,9,12,15'],a:'B',e:'f(1)=4, f(2)=7, f(3)=10, f(4)=13'},
+{n:20,f:'Line parallel to y=2x−4 through (2,−3). Equation?',c:['A) y=−½x−2','B) y=−½x−3','C) y=2x−4','D) y=2x−7'],a:'D',e:'Same slope m=2. y+3=2(x−2) → y=2x−7'},
+{n:21,f:'x^(5/7) is equivalent to which?',c:['A) ⁷√(x⁵)','B) ⁵√(x⁷)','C) (√x)^(5/7)','D) x^7·x^5'],a:'A',e:'x^(p/q)=q-th root of x^p'},
+{n:22,f:'64^(1/3)=?',c:['A) 4','B) 8','C) 16','D) 21'],a:'A',e:'Cube root of 64=4 because 4³=64'},
+{n:23,f:'12h+240 ≥ 360. Minimum hours Emma must work?',c:['A) 5','B) 10','C) 30','D) 50'],a:'B',e:'12h≥120 → h≥10'},
+{n:24,f:'P=510−17d models residents vs distance. What does −17 mean?',c:['A) Residents decrease 30/mile','B) Residents decrease 17/mile','C) Residents increase 30/mile','D) Residents increase 17/mile'],a:'B',e:'Slope −17 = 17 fewer residents per mile'},
+{n:25,f:'2x(x−4) is equivalent to?',c:['A) 2x²+8x','B) 2x²+4x','C) 2x²−4x','D) 2x²−8x'],a:'D',e:'2x·x=2x², 2x·(−4)=−8x. Result: 2x²−8x'},
+{n:26,f:'Which is equivalent to (x³y⁵)⁴ divided by (x³y²)^(−2)?',c:['A) xy⁵','B) x¹²y','C) x⁶y¹⁶','D) x¹⁸y²⁴'],a:'D',e:'x¹²·x⁶=x¹⁸ and y²⁰·y⁴=y²⁴'},
+{n:27,f:'Arithmetic sequence: 2,6,10,14,18. What is the 20th term?',c:['A) 78','B) 80','C) 82','D) 84'],a:'A',e:'4n−2. 4(20)−2=78'},
+{n:28,f:'Which is NOT equivalent to x^(5/7)?',c:['A) (x^5)^(1/7)','B) (x^(1/7))^5','C) ⁷√(x^5)','D) (⁵√x)^7'],a:'D',e:'(⁵√x)^7=x^(7/5) ≠ x^(5/7)'},
+{n:29,f:'Student incorrectly solved equation. Steps: 1) −6x−2=3x−20, 2) −9x=−18, 3) x=−2. Which step is wrong?',c:['A) Step 1','B) Step 2','C) Step 3','D) No error'],a:'C',e:'Step 3: −9x=−18 → x=2, not x=−2'},
+{n:30,f:'Which is equivalent to (3x²−4x+9)−(5x²+3x−4)?',c:['A) 2x²−x+5','B) −2x²−x+5','C) 2x²−7x+13','D) −2x²−7x+13'],a:'D',e:'Distribute negative: −2x²−7x+13'},
+]}
 };
 
 function normXI(s){return s.toString().trim().toLowerCase().replace(/\s+/g,'').replace(/x=/g,'').replace(/and/g,',').replace(/;/g,',').replace(/√/g,'sqrt').replace(/\u221a/g,'sqrt')}
