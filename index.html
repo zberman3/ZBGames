@@ -1172,7 +1172,7 @@ async function doSignup(){
   if(error){setMsg(error.message,'msg-err');return;}
   const pd={id:data.user.id,full_name:name,gamer_tag:tag,email,role:isTeacher?'teacher':'student'};
   if(isTeacher)pd.class_code=genCode();
-  if(!isTeacher&&cc){const{data:td}=await sb.from('profiles').select('id').eq('class_code',cc).single();if(td)pd.teacher_id=td.id;}
+  if(!isTeacher&&cc){const{data:td}=await sb.from('profiles').select('id').eq('class_code',cc).maybeSingle();if(td)pd.teacher_id=td.id;}
   await sb.from('profiles').insert(pd);
   setMsg('Account created! Logging you in...','msg-ok');
   setTimeout(doLogin,1000);
@@ -1251,7 +1251,7 @@ async function joinClass(){
   const code=inp?inp.value.trim().toUpperCase():'';
   if(!code){if(msg)msg.textContent='Enter a class code.';return;}
   if(msg){msg.textContent='Looking up class...';msg.style.color='var(--text3)';}
-  const{data:teacher}=await sb.from('profiles').select('id,full_name').eq('class_code',code).eq('role','teacher').single();
+  const{data:teacher}=await sb.from('profiles').select('id,full_name').eq('class_code',code).maybeSingle();
   if(!teacher){
     if(msg){msg.textContent='Class code not found. Check with your teacher.';msg.style.color='var(--red)';}
     return;
